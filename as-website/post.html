@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>文章 | AS娛樂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0a0a0a; --surface: #141414;
+      --border: #2a2a2a; --text: #f0f0f0;
+      --muted: #888; --accent: #c8a96e; --accent2: #e0c080;
+    }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Noto Sans TC', sans-serif; line-height: 1.7;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--accent); letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .back-btn {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.9rem; transition: color 0.2s;
+    }
+    .back-btn:hover { color: var(--accent); }
+
+    .wrap {
+      max-width: 760px; margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+    .meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; }
+    .title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800; color: var(--accent);
+      line-height: 1.3; margin-bottom: 12px;
+    }
+    .summary {
+      font-size: 1rem; color: var(--muted);
+      padding-bottom: 2rem; margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cover {
+      width: 100%; border-radius: 12px;
+      margin-bottom: 2rem; object-fit: cover;
+      max-height: 400px; display: none;
+    }
+    .body {
+      font-size: 1rem; line-height: 1.9;
+      color: #ccc; white-space: pre-wrap;
+    }
+    .state {
+      text-align: center; padding: 4rem;
+      color: var(--muted); font-size: 1rem;
+    }
+    .error { color: #e05555; }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 24px; text-align: center;
+      color: var(--muted); font-size: 0.85rem;
+    }
+    footer span { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">AS娛樂</a>
+  <a href="index.html#blog" class="back-btn">← 返回部落格</a>
+</nav>
+
+<div class="wrap">
+  <div class="state" id="loading">載入中...</div>
+
+  <div id="content" style="display:none">
+    <div class="meta" id="meta"></div>
+    <h1 class="title" id="title"></h1>
+    <p class="summary" id="summary"></p>
+    <img class="cover" id="cover" alt="封面"/>
+    <div class="body" id="body"></div>
+  </div>
+
+  <div class="state error" id="error" style="display:none">
+    找不到這篇文章 😢<br/>
+    <a href="index.html#blog" style="color:var(--accent);margin-top:12px;display:inline-block;">← 返回部落格</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <span>AS娛樂</span>｜八大最誠實經紀 · Angus</p>
+</footer>
+
+<script>
+  const WORKER = 'https://polished-truth-9fc2.angus061855.workers.dev';
+
+  async function loadPost() {
+    const slug = new URLSearchParams(window.location.search).get('slug');
+    if (!slug) { showError(); return; }
+
+    try {
+      const res = await fetch(`${WORKER}/posts/${slug}`);
+      if (!res.ok) throw new Error();
+      const post = await res.json();
+
+      document.title = `${post.title} | AS娛樂`;
+      document.getElementById('meta').textContent = post.date;
+      document.getElementById('title').textContent = post.title;
+      document.getElementById('summary').textContent = post.summary || '';
+      document.getElementById('body').textContent = post.body || '';
+
+      if (post.cover) {
+        const img = document.getElementById('cover');
+        img.src = post.cover;
+        img.style.display = 'block';
+      }
+
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    } catch {
+      showError();
+    }
+  }
+
+  function showError() {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+  }
+
+  loadPost();
+</script>
+</body>
+</html>
