@@ -224,26 +224,31 @@
     }
     .contact-link:hover { border-color: var(--accent); }
     .contact-link .icon { font-size: 1.2rem; }
-    .contact-form { display: flex; flex-direction: column; gap: 14px; }
-    .contact-form input,
-    .contact-form textarea {
-      background: var(--card); border: 1px solid var(--border);
-      color: var(--text); padding: 12px 16px;
-      border-radius: 8px; font-size: 0.9rem;
-      font-family: inherit; outline: none;
-      transition: border-color 0.2s;
+
+    /* ── LINE CTA BOX ── */
+    .line-cta-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 16px;
     }
-    .contact-form input:focus,
-    .contact-form textarea:focus { border-color: var(--accent); }
-    .contact-form textarea { resize: vertical; min-height: 120px; }
-    .contact-form button {
-      background: var(--accent); color: #0a0a0a;
-      font-weight: 700; padding: 13px;
-      border: none; border-radius: 8px;
-      font-size: 1rem; cursor: pointer;
-      transition: background 0.2s;
+    .line-cta-box p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0;
     }
-    .contact-form button:hover { background: var(--accent2); }
+    .line-cta-box .btn-primary {
+      font-size: 1.05rem;
+      padding: 16px 40px;
+      border-radius: 10px;
+      width: 100%;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -339,12 +344,8 @@
 <!-- HERO -->
 <section id="hero">
 
-
-
-  <!-- ✅ badge 在 LOGO 下面 -->
   <div class="hero-badge">八大最誠實經紀</div>
 
-  <!-- ✅ 標題文字 -->
   <p class="hero-sub-shine">
     <span>不</span><span>要</span><span>讓</span><span>未</span><span>來</span><span>的</span><span>你</span>
     <br/>
@@ -474,13 +475,15 @@
           </a>
         </div>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-       <input type="text" name="暱稱" placeholder="你的暱稱" required />
-<input type="text" name="聯絡方式" placeholder="聯絡方式（LINE ID 或 IG）" required />
-<textarea name="訊息" placeholder="想問什麼都可以說..."></textarea>
 
-        <button type="submit">送出訊息</button>
-      </form>
+      <!-- LINE CTA 取代表單 -->
+      <div class="line-cta-box">
+        <p>直接加 LINE 詢問，回覆最快 🚀</p>
+        <a href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" class="btn-primary">
+          💬 點我加 LINE，直接詢問最快
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -556,27 +559,6 @@
     }
   }
   loadBlog();
-
-  async function handleSubmit(e) {
-  e.preventDefault();
-  const form = e.target;
-  const data = new FormData(form);
-
-  const res = await fetch('https://formspree.io/f/mvzvoyrj', {
-    method: 'POST',
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  });
-
-  if (res.ok) {
-    alert('訊息已送出！也可以直接加 LINE 詢問最快 👉 line.me/ti/p/tTUQTPHKrE');
-
-    form.reset();
-  } else {
-    alert('送出失敗，請直接用 LINE 聯絡我！');
-  }
-}
-
 </script>
 </body>
 </html>
