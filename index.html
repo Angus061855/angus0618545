@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AS娛樂｜八大最誠實經紀</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --card: #1a1a1a;
+      --border: #2a2a2a;
+      --text: #f0f0f0;
+      --muted: #888;
+      --accent: #c8a96e;
+      --accent2: #e0c080;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Noto Sans TC', sans-serif;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 40px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--accent); letter-spacing: 0.05em;
+    }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.9rem; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: radial-gradient(ellipse at 50% 30%, #1e1a12 0%, #0a0a0a 70%);
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(200,169,110,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200,169,110,0.12);
+      border: 1px solid rgba(200,169,110,0.3);
+      color: var(--accent);
+      font-size: 0.8rem; letter-spacing: 0.1em;
+      padding: 6px 16px; border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted); max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .hero-stats {
+      display: flex; gap: 48px; justify-content: center;
+      margin-bottom: 48px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.85rem; color: var(--muted);
+      margin-top: 6px;
+    }
+    .hero-cta {
+      display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a; font-weight: 700;
+      padding: 14px 32px; border-radius: 8px;
+      text-decoration: none; font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 14px 32px; border-radius: 8px;
+      text-decoration: none; font-size: 1rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 96px 24px; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      color: var(--accent); text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--muted); font-size: 1rem;
+      max-width: 560px; margin-bottom: 56px;
+    }
+    .divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--surface); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center;
+    }
+    .about-text p { color: var(--muted); margin-bottom: 16px; }
+    .about-text strong { color: var(--text); }
+    .about-text a { color: var(--accent); text-decoration: underline; }
+    .about-highlights { display: flex; flex-direction: column; gap: 16px; }
+    .highlight-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 16px 20px; border-radius: 8px;
+    }
+    .highlight-item h4 { font-size: 0.95rem; margin-bottom: 4px; }
+    .highlight-item p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+
+    /* ── FEATURES ── */
+    #features { background: var(--bg); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px 24px; border-radius: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.875rem; color: var(--muted); }
+
+    /* ── BLOG ── */
+    #blog { background: var(--surface); }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .blog-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      text-decoration: none; color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex; flex-direction: column;
+    }
+    .blog-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .blog-card-cover {
+      width: 100%; height: 160px;
+      background: var(--border);
+      object-fit: cover;
+    }
+    .blog-card-cover-placeholder {
+      width: 100%; height: 160px;
+      background: linear-gradient(135deg, #1e1a12, #2a2520);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+    }
+    .blog-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-date { font-size: 0.75rem; color: var(--muted); margin-bottom: 8px; }
+    .blog-card-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .blog-card-summary { font-size: 0.85rem; color: var(--muted); flex: 1; }
+    .blog-loading { color: var(--muted); text-align: center; padding: 40px; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--bg); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: start;
+    }
+    .contact-info p { color: var(--muted); margin-bottom: 24px; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card); border: 1px solid var(--border);
+      padding: 14px 18px; border-radius: 8px;
+      text-decoration: none; color: var(--text);
+      font-size: 0.9rem; transition: border-color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--accent); }
+    .contact-link .icon { font-size: 1.2rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); padding: 12px 16px;
+      border-radius: 8px; font-size: 0.9rem;
+      font-family: inherit; outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--accent); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form button {
+      background: var(--accent); color: #0a0a0a;
+      font-weight: 700; padding: 13px;
+      border: none; border-radius: 8px;
+      font-size: 1rem; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover { background: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px; text-align: center;
+      color: var(--muted); font-size: 0.85rem;
+    }
+    footer span { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 16px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 28px; }
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── SHINE TEXT ── */
+    .hero-sub-shine {
+      font-size: 3.5rem !important;
+      font-weight: 800;
+      line-height: 1.6;
+      text-align: center;
+      margin: 0 auto 40px;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 768px) {
+      .hero-sub-shine { font-size: 2.4rem !important; }
+    }
+    .hero-sub-shine span {
+      display: inline-block;
+      color: transparent;
+      background: linear-gradient(90deg, #888 0%, #ffffff 40%, #c8a96e 60%, #888 100%);
+      background-size: 300% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shine 6s linear infinite;
+    }
+    .hero-sub-shine span:nth-child(1)  { animation-delay: 0.00s; }
+    .hero-sub-shine span:nth-child(2)  { animation-delay: 0.18s; }
+    .hero-sub-shine span:nth-child(3)  { animation-delay: 0.36s; }
+    .hero-sub-shine span:nth-child(4)  { animation-delay: 0.54s; }
+    .hero-sub-shine span:nth-child(5)  { animation-delay: 0.72s; }
+    .hero-sub-shine span:nth-child(6)  { animation-delay: 0.90s; }
+    .hero-sub-shine span:nth-child(7)  { animation-delay: 1.08s; }
+    .hero-sub-shine span:nth-child(8)  { animation-delay: 1.26s; }
+    .hero-sub-shine span:nth-child(9)  { animation-delay: 1.44s; }
+    .hero-sub-shine span:nth-child(10) { animation-delay: 1.62s; }
+    .hero-sub-shine span:nth-child(11) { animation-delay: 1.80s; }
+    .hero-sub-shine span:nth-child(12) { animation-delay: 1.98s; }
+    .hero-sub-shine span:nth-child(13) { animation-delay: 2.16s; }
+    .hero-sub-shine span:nth-child(14) { animation-delay: 2.34s; }
+    .hero-sub-shine span:nth-child(15) { animation-delay: 2.52s; }
+    .hero-sub-shine span:nth-child(16) { animation-delay: 2.70s; }
+
+    @keyframes shine {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+
+    /* ── LOGO ── */
+    .hero-logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0 40px;
+      width: 100%;
+    }
+    .hero-logo {
+      width: 280px;
+      height: auto;
+      filter: invert(1);
+      opacity: 0.9;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AS娛樂</div>
+  <div class="nav-links">
+    <a href="#about">關於我</a>
+    <a href="#features">為什麼選我</a>
+    <a href="#blog">部落格</a>
+    <a href="#contact">聯絡我</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+
+
+
+  <!-- ✅ badge 在 LOGO 下面 -->
+  <div class="hero-badge">八大最誠實經紀</div>
+
+  <!-- ✅ 標題文字 -->
+  <p class="hero-sub-shine">
+    <span>不</span><span>要</span><span>讓</span><span>未</span><span>來</span><span>的</span><span>你</span>
+    <br/>
+    <span>討</span><span>厭</span><span>現</span><span>在</span><span>的</span><span>自</span><span>己</span>
+  </p>
+
+  <p class="hero-sub">不簽合約、不壓薪水、自由排班</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" id="counter-years">0</div>
+      <div class="stat-label">從業年資</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span id="counter-interviews">0</span>+</div>
+      <div class="stat-label">個人面試人數</div>
+    </div>
+  </div>
+
+  <div class="hero-cta">
+    <a href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" class="btn-primary">立即加我 LINE</a>
+    <a href="#about" class="btn-outline">了解更多</a>
+  </div>
+
+</section>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">關於我</p>
+        <h2 class="section-title">Angus<br/>八大最誠實經紀人</h2>
+        <p>在這個行業，<strong>誠實是最稀缺的東西</strong>。<br/>我從業七年，個人面試超過 3,000 位女孩，<br/>見過太多人因為資訊不透明而受傷。</p>
+        <p>我的原則只有一個：<strong>把真實的情況告訴你</strong>，<br/>讓你在完全了解後再做決定，沒有任何壓力。</p>
+        <p>想找我可以 <a href="https://line.me/ti/p/tTUQTPHKrE" target="_blank">直接點擊這邊 LINE 詢問</a>。</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <h4>✅ 完全透明</h4>
+          <p>薪資、環境、工作內容全程說清楚，沒有隱藏資訊</p>
+        </div>
+        <div class="highlight-item">
+          <h4>🔒 隱私保護</h4>
+          <p>個人資料嚴格保密，是否告知家人完全由你決定</p>
+        </div>
+        <div class="highlight-item">
+          <h4>💬 真人陪伴</h4>
+          <p>不是機器人，有問題隨時找我，我都在</p>
+        </div>
+        <div class="highlight-item">
+          <h4>🎯 專業引導</h4>
+          <p>七年經驗帶你少走彎路，找到最適合你的方向</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <p class="section-label">為什麼選我</p>
+    <h2 class="section-title">業界最誠實的承諾</h2>
+    <p class="section-desc">不誇大、不催促、不隱瞞。這是我七年來唯一的做事方式。</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>薪資透明</h3>
+        <p>入行前完整說明計算方式，不會有隱藏費用或事後扣款</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <h3>安全第一</h3>
+        <p>工作環境事先評估，任何超出範圍的要求都可以直接拒絕</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <h3>時間彈性</h3>
+        <p>可短期、兼職或配合自己的行程，不強制綁定任何合約</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>一對一服務</h3>
+        <p>每個人的情況都不同，我會根據你的狀況給出最適合的建議</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="container">
+    <p class="section-label">部落格</p>
+    <h2 class="section-title">最新文章</h2>
+    <p class="section-desc">七年的觀察與心得，寫給每一個正在考慮的你。</p>
+    <div class="blog-grid" id="blog-grid">
+      <p class="blog-loading">載入中...</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">聯絡我</p>
+    <h2 class="section-title">有任何問題<br/>直接找我</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>不管你是認真考慮、還是只是好奇想了解，<br/>都歡迎找我聊聊。沒有壓力，沒有推銷。</p>
+        <div class="contact-links">
+          <a href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" class="contact-link">
+            <span class="icon">💬</span>
+            <span>LINE 個人帳號</span>
+          </a>
+          <a href="https://line.me/R/ti/p/@352lwisq?oat_content=url" target="_blank" class="contact-link">
+            <span class="icon">📢</span>
+            <span>LINE 官方帳號</span>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="你的暱稱" required />
+        <input type="text" placeholder="聯絡方式（LINE ID 或 IG）" required />
+        <textarea placeholder="想問什麼都可以說..."></textarea>
+        <button type="submit">送出訊息</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>AS娛樂</span>｜八大最誠實經紀 · Angus</p>
+</footer>
+
+<script>
+  function animateCounter(el, target, duration, suffix) {
+    const start = Date.now();
+    const update = () => {
+      const elapsed = Date.now() - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + (suffix || '');
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  function getInterviewCount() {
+    const stored = localStorage.getItem('interview_count');
+    const lastDate = localStorage.getItem('interview_date');
+    const today = new Date().toDateString();
+    let count = stored ? parseInt(stored) : 3000;
+    if (lastDate !== today) {
+      const add = Math.floor(Math.random() * 2) + 2;
+      count += add;
+      localStorage.setItem('interview_count', count);
+      localStorage.setItem('interview_date', today);
+    }
+    return count;
+  }
+
+  const heroSection = document.getElementById('hero');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(document.getElementById('counter-years'), 7, 1200, '年');
+        animateCounter(document.getElementById('counter-interviews'), getInterviewCount(), 1800);
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(heroSection);
+
+  async function loadBlog() {
+    const grid = document.getElementById('blog-grid');
+    try {
+      const res = await fetch('https://polished-truth-9fc2.angus061855.workers.dev/posts');
+      const posts = await res.json();
+      if (!posts.length) {
+        grid.innerHTML = '<p class="blog-loading">目前還沒有文章，敬請期待。</p>';
+        return;
+      }
+      grid.innerHTML = posts.map(post => `
+        <a class="blog-card" href="/post.html?slug=${post.slug}">
+          ${post.cover
+            ? `<img class="blog-card-cover" src="${post.cover}" alt="${post.title}"/>`
+            : `<div class="blog-card-cover-placeholder">✍️</div>`
+          }
+          <div class="blog-card-body">
+            <div class="blog-card-date">${post.date}</div>
+            <div class="blog-card-title">${post.title}</div>
+            <div class="blog-card-summary">${post.summary || ''}</div>
+          </div>
+        </a>
+      `).join('');
+    } catch(e) {
+      grid.innerHTML = '<p class="blog-loading">文章載入失敗，請稍後再試。</p>';
+    }
+  }
+  loadBlog();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert('訊息已送出！Angus 會盡快回覆你 💬');
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
