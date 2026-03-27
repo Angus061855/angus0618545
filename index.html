@@ -12,7 +12,13 @@
       --accent: #c8a96e; --accent2: #e0c080;
     }
     html { scroll-behavior: smooth; }
-    body {   background: #0a0a0a;   background-image:     radial-gradient(ellipse at 0% 0%, rgba(200,169,110,0.04) 0%, transparent 50%),     radial-gradient(ellipse at 100% 100%, rgba(200,169,110,0.03) 0%, transparent 50%);   color: var(--text); font-family: 'Noto Sans TC', sans-serif; line-height: 1.7; }
+    body {
+      background: #0a0a0a;
+      background-image:
+        radial-gradient(ellipse at 0% 0%, rgba(200,169,110,0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 100%, rgba(200,169,110,0.03) 0%, transparent 50%);
+      color: var(--text); font-family: 'Noto Sans TC', sans-serif; line-height: 1.7;
+    }
 
     /* NAV */
     nav {
@@ -22,12 +28,8 @@
       background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.nav-logo img { height: 40px; width: auto; display: block; }.nav-logo img { height: 40px; width: auto; display: block; }
+    .nav-logo { display: flex; align-items: center; gap: 8px; }
+    .nav-logo img { height: 40px; width: auto; display: block; }
     .nav-links { display: flex; gap: 28px; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
@@ -51,33 +53,148 @@
     .mobile-menu a:hover { color: var(--accent); }
 
     /* HERO */
-   #hero {
-  min-height: 100vh; display: flex; flex-direction: column;
-  justify-content: center; align-items: center; text-align: center;
-  padding: 120px 24px 80px;
-  position: relative; overflow: hidden;
-  background: #0a0a0a;
-}
-#hero::before {
-  content: ''; position: absolute; inset: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(ellipse at 20% 50%, rgba(200,169,110,0.07) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 20%, rgba(180,150,90,0.05) 0%, transparent 45%),
-              radial-gradient(ellipse at 60% 80%, rgba(200,169,110,0.06) 0%, transparent 40%);
-  animation: flowBg 12s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-#hero::after {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 100%, rgba(200,169,110,0.04) 0%, transparent 60%);
-  pointer-events: none;
-}
-@keyframes flowBg {
-  0%   { transform: translate(0%, 0%) rotate(0deg); }
-  33%  { transform: translate(3%, -4%) rotate(1deg); }
-  66%  { transform: translate(-3%, 3%) rotate(-1deg); }
-  100% { transform: translate(2%, -2%) rotate(0.5deg); }
-}
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+      background-image: url('7220AEA2-F224-48E9-9ED8-109B4BDDB157.jpeg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(0,0,0,0.55);
+      pointer-events: none; z-index: 0;
+    }
+    #hero::after {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(200,169,110,0.05) 0%, transparent 60%);
+      pointer-events: none; z-index: 1;
+    }
+    #hero > * { position: relative; z-index: 2; }
+
+    /* HERO 元素 */
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #ffffff;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      padding: 7px 20px;
+      border-radius: 999px;
+      margin-bottom: 36px;
+    }
+
+    .hero-sub-shine {
+      font-size: 3.5rem !important;
+      font-weight: 800;
+      line-height: 1.6;
+      text-align: center;
+      margin: 0 auto 40px;
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 768px) { .hero-sub-shine { font-size: 2.4rem !important; } }
+    .hero-sub-shine span {
+      display: inline-block; color: transparent;
+      background: linear-gradient(90deg, #888 0%, #ffffff 40%, #c8a96e 60%, #888 100%);
+      background-size: 300% auto; -webkit-background-clip: text; background-clip: text;
+      animation: shine 6s linear infinite;
+    }
+    .hero-sub-shine span:nth-child(1)  { animation-delay: 0.00s; }
+    .hero-sub-shine span:nth-child(2)  { animation-delay: 0.18s; }
+    .hero-sub-shine span:nth-child(3)  { animation-delay: 0.36s; }
+    .hero-sub-shine span:nth-child(4)  { animation-delay: 0.54s; }
+    .hero-sub-shine span:nth-child(5)  { animation-delay: 0.72s; }
+    .hero-sub-shine span:nth-child(6)  { animation-delay: 0.90s; }
+    .hero-sub-shine span:nth-child(7)  { animation-delay: 1.08s; }
+    .hero-sub-shine span:nth-child(8)  { animation-delay: 1.26s; }
+    .hero-sub-shine span:nth-child(9)  { animation-delay: 1.44s; }
+    .hero-sub-shine span:nth-child(10) { animation-delay: 1.62s; }
+    .hero-sub-shine span:nth-child(11) { animation-delay: 1.80s; }
+    .hero-sub-shine span:nth-child(12) { animation-delay: 1.98s; }
+    .hero-sub-shine span:nth-child(13) { animation-delay: 2.16s; }
+    .hero-sub-shine span:nth-child(14) { animation-delay: 2.34s; }
+    .hero-sub-shine span:nth-child(15) { animation-delay: 2.52s; }
+    .hero-sub-shine span:nth-child(16) { animation-delay: 2.70s; }
+    @keyframes shine {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+
+    .hero-sub {
+      color: #aaaaaa;
+      font-size: 0.95rem;
+      letter-spacing: 0.18em;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-direction: row;
+      gap: 64px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 48px;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: transparent;
+      background: linear-gradient(135deg, #c8a96e 0%, #e0c080 50%, #c8a96e 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 0.82rem;
+      color: #888888;
+      letter-spacing: 0.12em;
+      margin-top: 6px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, #c8a96e, #e0c080);
+      color: #0a0a0a;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 14px 36px;
+      border-radius: 10px;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      color: #aaaaaa;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 36px;
+      border-radius: 10px;
+      border: 1px solid #555555;
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { border-color: #c8a96e; color: #ffffff; transform: translateY(-2px); }
 
     /* SECTION BASE */
     section { padding: 96px 24px; }
@@ -177,10 +294,7 @@
       box-shadow: 0 0 15px rgba(200,169,110,0.1);
       transition: all 0.5s;
     }
-    body.danger-zone .nav-menu-guide {
-      border-color: #ff0000;
-      box-shadow: 0 0 20px rgba(255,0,0,0.5);
-    }
+    body.danger-zone .nav-menu-guide { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.5); }
     .nav-btn-guide {
       background: transparent; border: 2px solid transparent;
       color: var(--muted); padding: 8px 16px; border-radius: 30px;
@@ -350,43 +464,12 @@
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .about-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 28px; }
+      .hero-stats { gap: 36px; }
+      .stat-num { font-size: 2rem; }
       .features-grid { grid-template-columns: 1fr; }
       .float-line { bottom: 24px; right: 16px; }
       .nav-btn-guide { font-size: 0.8rem; padding: 7px 12px; }
-    }
-
-    /* SHINE */
-    .hero-sub-shine {
-      font-size: 3.5rem !important; font-weight: 800; line-height: 1.6;
-      text-align: center; margin: 0 auto 40px; letter-spacing: 0.08em;
-    }
-    @media (max-width: 768px) { .hero-sub-shine { font-size: 2.4rem !important; } }
-    .hero-sub-shine span {
-      display: inline-block; color: transparent;
-      background: linear-gradient(90deg, #888 0%, #ffffff 40%, #c8a96e 60%, #888 100%);
-      background-size: 300% auto; -webkit-background-clip: text; background-clip: text;
-      animation: shine 6s linear infinite;
-    }
-    .hero-sub-shine span:nth-child(1)  { animation-delay: 0.00s; }
-    .hero-sub-shine span:nth-child(2)  { animation-delay: 0.18s; }
-    .hero-sub-shine span:nth-child(3)  { animation-delay: 0.36s; }
-    .hero-sub-shine span:nth-child(4)  { animation-delay: 0.54s; }
-    .hero-sub-shine span:nth-child(5)  { animation-delay: 0.72s; }
-    .hero-sub-shine span:nth-child(6)  { animation-delay: 0.90s; }
-    .hero-sub-shine span:nth-child(7)  { animation-delay: 1.08s; }
-    .hero-sub-shine span:nth-child(8)  { animation-delay: 1.26s; }
-    .hero-sub-shine span:nth-child(9)  { animation-delay: 1.44s; }
-    .hero-sub-shine span:nth-child(10) { animation-delay: 1.62s; }
-    .hero-sub-shine span:nth-child(11) { animation-delay: 1.80s; }
-    .hero-sub-shine span:nth-child(12) { animation-delay: 1.98s; }
-    .hero-sub-shine span:nth-child(13) { animation-delay: 2.16s; }
-    .hero-sub-shine span:nth-child(14) { animation-delay: 2.34s; }
-    .hero-sub-shine span:nth-child(15) { animation-delay: 2.52s; }
-    .hero-sub-shine span:nth-child(16) { animation-delay: 2.70s; }
-    @keyframes shine {
-      0%   { background-position: 200% center; }
-      100% { background-position: -200% center; }
+      .btn-primary, .btn-outline { padding: 13px 28px; font-size: 0.95rem; }
     }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;500&display=swap" rel="stylesheet"/>
@@ -403,8 +486,8 @@
 <nav>
   <div class="nav-logo">
     <img src="logo.png" alt="AS娛樂"/>
-  <span style="font-size:1.1rem; font-weight:400; letter-spacing:0.18em; color:#ffffff; font-family:'Noto Serif TC', serif;">AS娛樂</span>
-</div>
+    <span style="font-size:1.1rem; font-weight:400; letter-spacing:0.18em; color:#ffffff; font-family:'Noto Serif TC', serif;">AS娛樂</span>
+  </div>
   <div class="nav-links">
     <a href="#about">關於我</a>
     <a href="#features">為什麼選我</a>
@@ -644,7 +727,6 @@
       <button class="nav-btn-guide btn-danger-guide" onclick="switchGuide('g-page-danger', this)">🚨 絕對拒簽</button>
     </div>
 
-    <!-- PAGE 1 薪資排班 -->
     <div id="g-page1" class="guide-page active">
       <div class="term-card-guide" onclick="toggleGuideCard(event, this)">
         <div class="term-header-guide">一節 / 節薪 / 打卡 / 報班 / 門禁</div>
@@ -707,7 +789,6 @@
       </div>
     </div>
 
-    <!-- PAGE 2 店家類型 -->
     <div id="g-page2" class="guide-page">
       <div class="term-card-guide" onclick="toggleGuideCard(event, this)">
         <div class="term-header-guide">制服店</div>
@@ -753,7 +834,6 @@
       </div>
     </div>
 
-    <!-- PAGE 3 人員職稱 -->
     <div id="g-page3" class="guide-page">
       <div class="term-card-guide" onclick="toggleGuideCard(event, this)">
         <div class="term-header-guide">行政 / 帶台</div>
@@ -788,12 +868,10 @@
       </div>
     </div>
 
-    <!-- PAGE 4 坐檯包廂 -->
     <div id="g-page4" class="guide-page">
       <div class="term-card-guide" onclick="toggleGuideCard(event, this)">
         <div class="term-header-guide">上台 / 空台 / 看台 / 順位</div>
         <div class="term-body-guide">
-          
           <p>● <span class="guide-highlight">上台</span>　被客人選中坐在包廂裡</p>
           <p>● <span class="guide-highlight">空台</span>　沒被選中　空台時沒薪水</p>
           <p>● <span class="guide-highlight">看台</span>　進包廂給客人挑的過程</p>
@@ -849,7 +927,6 @@
       </div>
     </div>
 
-    <!-- PAGE 5 點檯框檯 -->
     <div id="g-page5" class="guide-page">
       <div class="term-card-guide" onclick="toggleGuideCard(event, this)">
         <div class="term-header-guide">順坐 / 前桌 / 後桌</div>
@@ -892,7 +969,6 @@
       </div>
     </div>
 
-    <!-- PAGE 6 其他 -->
     <div id="g-page6" class="guide-page">
       <div class="term-card-guide" onclick="toggleGuideCard(event, this)">
         <div class="term-header-guide">喝酒技巧 / 假喝 / 換酒</div>
@@ -929,7 +1005,6 @@
       </div>
     </div>
 
-    <!-- PAGE DANGER 絕對拒簽 -->
     <div id="g-page-danger" class="guide-page">
       <div class="alert-card-guide">
         <div class="alert-title-guide">🚨 這些合約絕對不能簽 🚨</div>
@@ -1105,3 +1180,4 @@
 </script>
 </body>
 </html>
+
