@@ -1221,103 +1221,103 @@ body::after {
   resize();
   window.addEventListener('resize', resize);
 
-  // 波浪控制點
-  const waves = [
-    { x: 0.2, y: 0.3, r: 0.55, speedX: 0.00018, speedY: 0.00013, ox: 0, oy: 0 },
-    { x: 0.7, y: 0.6, r: 0.50, speedX:-0.00015, speedY: 0.00020, ox: 0, oy: 0 },
-    { x: 0.5, y: 0.1, r: 0.45, speedX: 0.00022, speedY:-0.00017, ox: 0, oy: 0 },
-    { x: 0.1, y: 0.8, r: 0.40, speedX:-0.00019, speedY:-0.00014, ox: 0, oy: 0 },
-    { x: 0.85, y: 0.2, r: 0.48, speedX: 0.00016, speedY: 0.00021, ox: 0, oy: 0 },
-    { x: 0.4, y: 0.9, r: 0.42, speedX:-0.00021, speedY: 0.00015, ox: 0, oy: 0 },
-  ];
-
-  // 金色光點
-  const glints = [
-    { x: 0.65, y: 0.25, speedX: 0.00012, speedY: 0.00009, ox: 0, oy: 0 },
-    { x: 0.30, y: 0.70, speedX:-0.00010, speedY: 0.00014, ox: 0, oy: 0 },
-    { x: 0.80, y: 0.55, speedX: 0.00008, speedY:-0.00011, ox: 0, oy: 0 },
-  ];
-
   let t = 0;
+
+  // 布料光澤控制點：模擬圖片中那條從左上到右下的亮帶
+  const folds = [
+    { x: 0.15, y: 0.10, tx: 0.75, ty: 0.55, speed: 0.00008, phase: 0.0  },
+    { x: 0.05, y: 0.40, tx: 0.60, ty: 0.90, speed: 0.00006, phase: 1.2  },
+    { x: 0.30, y: 0.00, tx: 0.95, ty: 0.70, speed: 0.00007, phase: 2.4  },
+  ];
+
+  function drawFold(fold, time) {
+    const drift = Math.sin(time * fold.speed * 1000 + fold.phase) * 0.06;
+    const x1 = (fold.x + drift)  * W;
+    const y1 = (fold.y + drift * 0.5) * H;
+    const x2 = (fold.tx - drift) * W;
+    const y2 = (fold.ty - drift * 0.3) * H;
+
+    // 垂直於光帶方向的寬度
+    const len = Math.hypot(x2 - x1, y2 - y1);
+    const nx  = -(y2 - y1) / len;
+    const ny  =  (x2 - x1) / len;
+    const w   = Math.max(W, H) * (0.28 + Math.sin(time * fold.speed * 800 + fold.phase) * 0.04);
+
+    const gx1 = x1 + nx * w;
+    const gy1 = y1 + ny * w;
+    const gx2 = x1 - nx * w;
+    const gy2 = y1 - ny * w;
+
+    const grad = ctx.createLinearGradient(gx1, gy1, gx2, gy2);
+    grad.addColorStop(0,    'rgba(0,0,0,0)');
+    grad.addColorStop(0.35, 'rgba(0,0,0,0)');
+    grad.addColorStop(0.48, 'rgba(72,70,68,0.18)');
+    grad.addColorStop(0.50, 'rgba(95,92,88,0.28)');
+    grad.addColorStop(0.52, 'rgba(72,70,68,0.18)');
+    grad.addColorStop(0.65, 'rgba(0,0,0,0)');
+    grad.addColorStop(1,    'rgba(0,0,0,0)');
+
+    ctx.save();
+    ctx.beginPath();
+    // 沿光帶方向畫一個長矩形遮罩
+    const ex = (x2 - x1) / len;
+    const ey = (y2 - y1) / len;
+    const ext = Math.max(W, H) * 0.1;
+    ctx.moveTo(x1 - ex * ext + nx * w, y1 - ey * ext + ny * w);
+    ctx.lineTo(x2 + ex * ext + nx * w, y2 + ey * ext + ny * w);
+    ctx.lineTo(x2 + ex * ext - nx * w, y2 + ey * ext - ny * w);
+    ctx.lineTo(x1 - ex * ext - nx * w, y1 - ey * ext - ny * w);
+    ctx.closePath();
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.restore();
+  }
+
+  // 圓形凸起光澤（模擬圖片中間那個鼓起的部分）
+  const bumps = [
+    { x: 0.55, y: 0.35, r: 0.42, speed: 0.000055, phase: 0.0  },
+    { x: 0.25, y: 0.65, r: 0.35, speed: 0.000045, phase: 1.8  },
+    { x: 0.75, y: 0.75, r: 0.30, speed: 0.000065, phase: 3.2  },
+  ];
+
+  function drawBump(bump, time) {
+    const drift = Math.sin(time * bump.speed * 1000 + bump.phase);
+    const cx = (bump.x + drift * 0.07) * W;
+    const cy = (bump.y + Math.cos(time * bump.speed * 800 + bump.phase) * 0.06) * H;
+    const r  = bump.r * Math.max(W, H);
+
+    const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+    grad.addColorStop(0,    'rgba(88, 85, 80, 0.20)');
+    grad.addColorStop(0.25, 'rgba(65, 62, 58, 0.14)');
+    grad.addColorStop(0.55, 'rgba(30, 28, 26, 0.07)');
+    grad.addColorStop(1,    'rgba(0,  0,  0,  0)');
+
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, W, H);
+  }
 
   function draw() {
     t++;
 
-    // 底色
-    ctx.fillStyle = '#070707';
+    // 純黑底
+    ctx.fillStyle = '#060606';
     ctx.fillRect(0, 0, W, H);
 
-    // 布料波浪光澤層
-    waves.forEach(w => {
-      w.ox += w.speedX;
-      w.oy += w.speedY;
-      const cx = (w.x + Math.sin(w.ox * 1000) * 0.18) * W;
-      const cy = (w.y + Math.cos(w.oy * 1000) * 0.18) * H;
-      const r  = w.r * Math.max(W, H);
+    // 畫布料凸起光澤
+    bumps.forEach(b => drawBump(b, t));
 
-      const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-      grad.addColorStop(0,   'rgba(80, 75, 70, 0.22)');
-      grad.addColorStop(0.3, 'rgba(55, 50, 45, 0.16)');
-      grad.addColorStop(0.6, 'rgba(30, 28, 25, 0.10)');
-      grad.addColorStop(1,   'rgba(0,  0,  0,  0)');
+    // 畫布料折痕光帶
+    folds.forEach(f => drawFold(f, t));
 
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, W, H);
-    });
-
-    // 布料紋理線條（模擬纖維）
-    ctx.save();
-    for (let i = 0; i < 5; i++) {
-      const phase = t * 0.0004 + i * 1.2;
-      const y0 = H * (0.1 + i * 0.18 + Math.sin(phase) * 0.06);
-      const cp1x = W * (0.2 + Math.sin(phase * 0.7) * 0.15);
-      const cp1y = y0 - H * (0.08 + Math.cos(phase * 0.5) * 0.05);
-      const cp2x = W * (0.6 + Math.cos(phase * 0.9) * 0.15);
-      const cp2y = y0 + H * (0.08 + Math.sin(phase * 0.6) * 0.05);
-      const x1   = W * (-0.05);
-      const x2   = W * (1.05);
-
-      const lineGrad = ctx.createLinearGradient(x1, y0, x2, y0);
-      lineGrad.addColorStop(0,   'rgba(120,115,105,0)');
-      lineGrad.addColorStop(0.2, 'rgba(120,115,105,0.06)');
-      lineGrad.addColorStop(0.5, 'rgba(150,140,125,0.10)');
-      lineGrad.addColorStop(0.8, 'rgba(120,115,105,0.06)');
-      lineGrad.addColorStop(1,   'rgba(120,115,105,0)');
-
-      ctx.beginPath();
-      ctx.moveTo(x1, y0);
-      ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x2, y0);
-      ctx.strokeStyle = lineGrad;
-      ctx.lineWidth = H * (0.06 + Math.sin(phase * 0.3) * 0.02);
-      ctx.stroke();
-    }
-    ctx.restore();
-
-    // 金色光澤點
-    glints.forEach(g => {
-      g.ox += g.speedX;
-      g.oy += g.speedY;
-      const gx = (g.x + Math.sin(g.ox * 1000) * 0.25) * W;
-      const gy = (g.y + Math.cos(g.oy * 1000) * 0.25) * H;
-      const gr = 0.35 * Math.max(W, H);
-
-      const gGrad = ctx.createRadialGradient(gx, gy, 0, gx, gy, gr);
-      gGrad.addColorStop(0,   'rgba(200,169,110,0.055)');
-      gGrad.addColorStop(0.4, 'rgba(180,150, 90,0.030)');
-      gGrad.addColorStop(1,   'rgba(0,  0,   0, 0)');
-
-      ctx.fillStyle = gGrad;
-      ctx.fillRect(0, 0, W, H);
-    });
-
-    // 整體暗角
+    // 整體暗角壓邊
     const vignette = ctx.createRadialGradient(
-      W * 0.5, H * 0.5, 0,
-      W * 0.5, H * 0.5, Math.max(W, H) * 0.75
+      W * 0.5, H * 0.45, 0,
+      W * 0.5, H * 0.45, Math.max(W, H) * 0.78
     );
-    vignette.addColorStop(0,   'rgba(0,0,0,0)');
-    vignette.addColorStop(0.6, 'rgba(0,0,0,0.15)');
-    vignette.addColorStop(1,   'rgba(0,0,0,0.65)');
+    vignette.addColorStop(0,    'rgba(0,0,0,0)');
+    vignette.addColorStop(0.55, 'rgba(0,0,0,0.18)');
+    vignette.addColorStop(0.80, 'rgba(0,0,0,0.55)');
+    vignette.addColorStop(1,    'rgba(0,0,0,0.85)');
     ctx.fillStyle = vignette;
     ctx.fillRect(0, 0, W, H);
 
@@ -1326,6 +1326,7 @@ body::after {
 
   draw();
 })();
+
 </script>
 
 </script>
