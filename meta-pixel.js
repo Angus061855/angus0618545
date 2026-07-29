@@ -21,7 +21,7 @@
   var firstScript = document.getElementsByTagName('script')[0];
   firstScript.parentNode.insertBefore(script, firstScript);
 
-  fbq('init', '1566368548347684');
+  fbq('init', '1576529224516912');
   fbq('track', 'PageView');
 
   document.addEventListener('click', function (event) {
