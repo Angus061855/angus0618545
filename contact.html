@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#060606" />
   <meta name="color-scheme" content="dark" />
-  <title>AS｜品牌理念與資訊整理</title>
-  <meta name="description" content="認識 AS 的品牌理念、資訊整理方式與我們重視的透明原則。" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://as-ent-tw.com/brand" />
-  <noscript><meta http-equiv="refresh" content="0; url=brand/" /></noscript>
-  <script>
-    window.location.replace(window.location.protocol === 'file:' ? 'brand/' : '/brand/');
-  </script>
+  <title>聯絡我｜AS娛樂 大頭</title>
+  <meta name="description" content="聯絡 AS娛樂大頭。可直接加 LINE 找本人，或加入官方 LINE。問問題不代表你要來做，免費諮詢，有問必答。" />
+  <meta name="keywords" content="酒店經紀,八大經紀,酒店諮詢,LINE諮詢,八大職缺" />
+  <link rel="canonical" href="https://as-ent-tw.com/contact" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="site.css?v=20260718-tools1" />
+  <link rel="stylesheet" href="site.css?v=20260719-nav1" />
   <style>
     .fade-up {
       opacity: 0;
@@ -523,10 +519,10 @@
 <body>
   <nav>
     <a class="nav-logo" href="/" aria-label="回到 AS娛樂首頁"><img src="logo.png?v=20260604-logo2" alt="AS娛樂" width="46" height="46" /><span class="nav-logo-text"><strong>AS娛樂</strong><span class="nav-home-hint">返回首頁</span></span></a>
-    <div class="nav-links"><a href="/">首頁</a><a href="/about">關於我</a><a href="/jobs">職缺介紹</a><a href="/knowledge">八大知識+</a><a href="/blog">部落格</a><a href="/brand">聯絡我</a></div>
+    <div class="nav-links"><a href="/">首頁</a><a href="/about">關於我</a><a href="/jobs">職缺介紹</a><a href="/knowledge">八大知識+</a><a href="/blog">部落格</a><a class="active" href="/contact">聯絡我</a></div>
     <button class="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
-  <div class="mobile-menu"><a href="/">首頁</a><a href="/about">關於我</a><a href="/jobs">職缺介紹</a><a href="/knowledge">八大知識+</a><a href="/blog">部落格</a><a href="/brand">聯絡我</a></div>
+  <div class="mobile-menu"><a href="/">首頁</a><a href="/about">關於我</a><a href="/jobs">職缺介紹</a><a href="/knowledge">八大知識+</a><a href="/blog">部落格</a><a href="/contact">聯絡我</a></div>
 
   <main>
     <section id="hero">
@@ -569,7 +565,7 @@
         <a href="https://www.instagram.com/" data-official-instagram target="_blank" rel="noopener noreferrer" class="btn-outline instagram-outline">官方 IG</a>
       </div>
       <p class="line-alert-note hero-line-alert fade-up" style="transition-delay:0.45s">因同行長期眼紅檢舉我　目前 IG 帳號會一直更換<br>想更快找到我可以直接加 LINE</p>
-      <div class="hero-scroll-arrow fade-up" style="transition-delay:0.5s" onclick="document.getElementById('contact-direct').scrollIntoView({behavior:'smooth'})">
+      <div class="hero-scroll-arrow fade-up" style="transition-delay:0.5s" onclick="document.getElementById('income-tool').scrollIntoView({behavior:'smooth'})">
         <span>向下探索更多內容</span>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -577,7 +573,82 @@
       </div>
     </section>
 
-    <section class="final-contact-section" id="contact-direct">
+    <section class="section" id="income-tool">
+      <div class="container">
+        <span class="section-label">薪資試算</span>
+        <h2 class="section-title">先算一個大概<br>再決定要不要詢問</h2>
+        <p class="section-desc">這只是試算<br>不保證收入<br>先讓你抓大概方向</p>
+        <div class="tool-panel">
+          <div class="tool-tabs">
+            <button class="tool-tab active" type="button" data-income-mode="club" onclick="setIncomeMode('club')">酒店公關</button>
+            <button class="tool-tab" type="button" data-income-mode="beauty" onclick="setIncomeMode('beauty')">美容師</button>
+          </div>
+          <div class="tool-fields range-fields">
+            <div class="tool-field range-field"><label for="income-days">每週天數 <output id="income-days-value">3 天</output></label><input id="income-days" type="range" min="1" max="7" step="1" value="3" oninput="calculateIncome()"></div>
+            <div class="tool-field range-field"><label for="income-hours">每天時數 <output id="income-hours-value">6 小時</output></label><input id="income-hours" type="range" min="1" max="12" step="1" value="6" oninput="calculateIncome()"></div>
+            <div class="tool-field range-field"><label for="income-rate" id="income-rate-label">節薪（10分鐘） <output id="income-rate-value">260 元</output></label><input id="income-rate" type="range" min="230" max="290" step="10" value="260" oninput="calculateIncome()"></div>
+          </div>
+          <div class="income-result income-result-grid">
+            <div class="income-result-card"><span>預估日收入</span><strong id="income-daily">約 0 元</strong></div>
+            <div class="income-result-card"><span>預估週收入</span><strong id="income-weekly">約 0 元</strong></div>
+            <div class="income-result-card"><span>預估月收入</span><strong id="income-monthly">約 0 元</strong></div>
+            <p id="income-note">酒店以 10 分鐘一節計算<br>節薪依你選擇的數字試算</p>
+            <p class="income-warning-note">每家店都有清潔費稅金等東西要扣<br>各家店不同　詳細可詢問我</p>
+            <p class="income-disclaimer">試算結果僅供了解大概範圍　不代表保證收入<br><a href="/disclaimer#salary">查看完整薪資試算聲明</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fit-quiz">
+      <div class="container">
+        <span class="section-label">適合測驗</span>
+        <h2 class="section-title">先做 30 秒測驗<br>再決定要不要問我</h2>
+        <div class="tool-panel quiz-panel quiz-wrap">
+          <div class="quiz-progress">
+            <span class="quiz-progress-dot active" id="contact-qdot-0"></span>
+            <span class="quiz-progress-dot" id="contact-qdot-1"></span>
+            <span class="quiz-progress-dot" id="contact-qdot-2"></span>
+          </div>
+          <div class="quiz-step active" data-contact-quiz-step="0">
+            <h3 class="quiz-q">你現在最主要的考量是什麼</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(0,0)">需要快速增加收入</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(0,1)">想要時間更彈性自由</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(0,2)">只是好奇想了解看看</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(0,3)">其他</button>
+            </div>
+          </div>
+          <div class="quiz-step" data-contact-quiz-step="1">
+            <h3 class="quiz-q">你對八大行業最擔心的是什麼</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(1,0)">隱私問題　怕被認識的人知道</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(1,1)">合約問題　怕被綁住走不了</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(1,2)">完全不了解　不知道從哪裡問起</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(1,3)">其他</button>
+            </div>
+          </div>
+          <div class="quiz-step" data-contact-quiz-step="2">
+            <h3 class="quiz-q">你希望怎麼開始</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(2,0)">先問問題　了解清楚再說</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(2,1)">先看看資訊　自己研究一下</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(2,2)">直接了解　有興趣就快速行動</button>
+              <button class="quiz-opt quiz-choice" type="button" onclick="nextContactQuiz(2,3)">其他</button>
+            </div>
+          </div>
+          <div class="quiz-step quiz-result quiz-result-box" id="contact-quiz-result">
+            <div class="quiz-result-title" id="contact-quiz-title">你很適合先了解看看</div>
+            <p class="quiz-result-desc" id="contact-quiz-desc">你現在最需要的是資訊<br>不是馬上做決定</p>
+            <div class="contact-row"><a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer">立即詢問</a></div>
+            <p class="line-alert-note">因同行長期眼紅檢舉我　目前 IG 帳號會一直更換<br>想更快找到我可以直接加 LINE</p>
+            <button class="quiz-restart" type="button" onclick="restartContactQuiz()">重新測驗</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-contact-section">
       <div class="container">
         <div class="final-contact-inner">
           <p class="section-label">有　問　必　答</p>

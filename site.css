@@ -147,7 +147,7 @@ nav {
 }
 .nav-logo { display: flex; align-items: center; gap: 10px; color: var(--accent2); text-decoration: none; }
 .nav-logo img {
-  height: 46px;
+  height: 40px;
   width: auto;
   display: block;
 }
@@ -170,7 +170,7 @@ nav {
   transition:color .2s ease;
 }
 .nav-logo:hover .nav-home-hint { color:var(--accent2); }
-.nav-links { display: flex; align-items: center; gap: 22px; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; letter-spacing: .06em; transition: color .2s; white-space: nowrap; }
 .nav-links a:hover, .nav-links a.active { color: var(--accent2); }
 .mobile-menu-btn {
@@ -695,6 +695,7 @@ nav {
   max-width:980px;
   margin-left:auto;
   margin-right:auto;
+  margin-bottom:clamp(84px, 9vw, 118px);
   gap:22px;
 }
 .jobs-list .card {
@@ -963,8 +964,8 @@ nav {
 }
 .jobs-tools-stack {
   display:grid;
-  gap:64px;
-  margin:72px auto 58px;
+  gap:clamp(76px, 8vw, 108px);
+  margin:0 auto clamp(84px, 9vw, 118px);
   max-width:980px;
 }
 .jobs-tool-block {
@@ -2631,9 +2632,10 @@ footer {
     width:100%;
   }
   .jobs-tools-stack {
-    gap:48px;
-    margin:52px auto 42px;
+    gap:64px;
+    margin:0 auto 70px;
   }
+  .jobs-list { margin-bottom:64px; }
   .jobs-tool-block {
     scroll-margin-top:86px;
   }
