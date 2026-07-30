@@ -27,18 +27,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../site.css?v=20260718-tools1" />
+  <link rel="stylesheet" href="../site.css?v=20260719-nav1" />
   <style>
     .brand-page {
       color: var(--text);
     }
+    .brand-page > main {
+      padding-top: 0;
+    }
+    @media (max-width: 1100px) {
+      .brand-page > nav + .mobile-menu + main {
+        padding-top: 0;
+      }
+    }
     .brand-hero {
-      min-height: calc(100vh - 69px);
+      min-height: calc(100svh - 72px);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 96px 24px 82px;
+      padding: 82px 24px 30px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -56,7 +64,7 @@
       content: "";
       position: absolute;
       left: 50%;
-      bottom: 70px;
+      bottom: 34px;
       width: 64px;
       height: 1px;
       transform: translateX(-50%);
@@ -69,7 +77,7 @@
       position: relative;
       z-index: 1;
     }
-    /* 首屏沿用首頁資訊層級；此頁不放聯絡按鈕。 */
+    /* 首屏保留首頁的材質與字體，但把行動路徑收斂成單一路線。 */
     .brand-home-badges,
     .brand-home-pills {
       display: flex;
@@ -119,9 +127,9 @@
     }
     .brand-home-title {
       max-width: 980px;
-      margin: 0 auto 22px;
+      margin: 0 auto 16px;
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(2.8rem, 7.4vw, 5.15rem);
+      font-size: clamp(2.55rem, 6.55vw, 4.55rem);
       font-weight: 700;
       line-height: 1.45;
       letter-spacing: .06em;
@@ -132,6 +140,77 @@
       background-clip: text;
       text-shadow: 0 0 34px rgba(200,169,110,.14);
       animation: brandShine 8s linear infinite;
+    }
+    .brand-hero-lead {
+      max-width: 620px;
+      margin: 0 auto 15px;
+      color: #c9c2b9;
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 2;
+      letter-spacing: .07em;
+    }
+    .brand-hero-intro-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      margin-bottom: 16px;
+      padding: 5px 14px;
+      border: 1px solid rgba(200,169,110,.36);
+      border-radius: var(--radius-pill);
+      background: rgba(7,7,7,.78);
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+    .brand-title-line {
+      display: block;
+      white-space: nowrap;
+    }
+    .brand-hero-trust {
+      margin: 0 auto 15px;
+      color: #c9b992;
+      font-size: .82rem;
+      font-weight: 700;
+      line-height: 1.8;
+      letter-spacing: .08em;
+    }
+    .brand-hero-trust-line {
+      white-space: nowrap;
+    }
+    .brand-hero-trust-line + .brand-hero-trust-line::before {
+      content: "｜";
+    }
+    .brand-hero-features {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      width: min(100%, 700px);
+      margin: 0 auto;
+    }
+    .brand-hero-feature {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 6px 9px;
+      border: 1px solid rgba(200,169,110,.16);
+      border-radius: var(--radius-card);
+      background: rgba(10,9,7,.72);
+      color: #e1d8c9;
+      font-size: .74rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-decoration: none;
+      transition: border-color .2s ease, background .2s ease, color .2s ease;
+    }
+    .brand-hero-feature:hover,
+    .brand-hero-feature:focus-visible {
+      border-color: rgba(224,192,128,.45);
+      color: #eadfca;
+      outline: none;
     }
     .brand-home-stats {
       display: flex;
@@ -229,7 +308,7 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      margin-top: 42px;
+      margin-top: 18px;
       color: rgba(200,169,110,.4);
       font-size: .72rem;
       letter-spacing: .2em;
@@ -252,6 +331,7 @@
       flex-wrap: wrap;
       gap: 10px;
       justify-content: center;
+      margin-top: 42px;
     }
     .brand-badges {
       margin-bottom: 26px;
@@ -366,10 +446,35 @@
       margin: 0 auto 28px;
     }
     .brand-hero-actions {
-      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: min(100%, 510px);
+      margin: 20px auto 0;
+      gap: 10px;
+    }
+    .brand-hero-actions .btn-primary,
+    .brand-hero-actions .btn-outline {
+      width: 100%;
+      min-width: 220px;
+      min-height: 54px;
+      justify-content: center;
+    }
+    .brand-hero-actions .btn-primary {
+      font-size: .94rem;
+      font-weight: 800;
     }
     .brand-hero-actions .btn-outline {
-      min-width: 220px;
+      border-color: rgba(200,169,110,.18);
+      background: rgba(10,9,7,.76);
+      color: #ded7cc;
+      box-shadow: none;
+      font-weight: 600;
+    }
+    .brand-hero-actions .btn-outline:hover,
+    .brand-hero-actions .btn-outline:focus-visible {
+      border-color: rgba(224,192,128,.42);
+      color: #f0e7d8;
+      box-shadow: none;
     }
     .brand-contact-modal[hidden] {
       display: none;
@@ -443,7 +548,8 @@
       letter-spacing: .08em;
     }
     .brand-contact-field input,
-    .brand-contact-field select {
+    .brand-contact-field select,
+    .brand-contact-field textarea {
       width: 100%;
       min-height: 52px;
       border: 1px solid rgba(200,169,110,.22);
@@ -455,8 +561,14 @@
       letter-spacing: .05em;
       outline: none;
     }
+    .brand-contact-field textarea {
+      min-height: 124px;
+      resize: vertical;
+      line-height: 1.7;
+    }
     .brand-contact-field input:focus,
-    .brand-contact-field select:focus {
+    .brand-contact-field select:focus,
+    .brand-contact-field textarea:focus {
       border-color: rgba(224,192,128,.62);
       box-shadow: 0 0 0 3px rgba(200,169,110,.12);
     }
@@ -565,6 +677,76 @@
     .brand-card h3 {
       color: var(--accent2);
     }
+    .brand-reassurance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 38px;
+    }
+    .brand-reassurance-card {
+      min-height: 174px;
+      padding: 24px 20px;
+      border: 1px solid rgba(200,169,110,.18);
+      border-radius: var(--radius-card);
+      background: linear-gradient(150deg, rgba(200,169,110,.055), rgba(8,8,8,.82));
+      box-shadow: inset 0 1px 0 rgba(200,169,110,.08);
+      text-align: center;
+    }
+    .brand-reassurance-card .tag {
+      margin-bottom: 18px;
+    }
+    .brand-reassurance-card h3 {
+      margin: 0 0 12px;
+      color: var(--accent2);
+      font-family: "Noto Serif TC", serif;
+      font-size: 1.24rem;
+      letter-spacing: .06em;
+    }
+    .brand-reassurance-card p {
+      margin: 0;
+      color: #aaa298;
+      font-size: .86rem;
+      line-height: 1.9;
+      letter-spacing: .035em;
+    }
+    .brand-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 860px;
+      margin: 38px auto 0;
+    }
+    .brand-step {
+      position: relative;
+      min-height: 176px;
+      padding: 28px 22px 24px;
+      border-top: 1px solid rgba(200,169,110,.42);
+      border-bottom: 1px solid rgba(200,169,110,.14);
+      background: linear-gradient(180deg, rgba(200,169,110,.045), transparent 68%);
+      text-align: center;
+    }
+    .brand-step-num {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-family: "Noto Serif TC", serif;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+    }
+    .brand-step h3 {
+      margin: 0 0 12px;
+      color: #e8e4dc;
+      font-size: 1.08rem;
+      letter-spacing: .07em;
+    }
+    .brand-step p {
+      margin: 0;
+      color: #9b958c;
+      font-size: .86rem;
+      line-height: 1.9;
+      letter-spacing: .035em;
+    }
     .brand-principles {
       max-width: 860px;
       margin: 38px auto 0;
@@ -657,6 +839,29 @@
       color: #756e65 !important;
       font-size: .82rem;
     }
+    .brand-contact-alert {
+      max-width: 540px;
+      margin: 32px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid rgba(200,169,110,.18);
+      color: #c7867c;
+      text-align: center;
+    }
+    .brand-contact-alert span {
+      display: block;
+      margin-bottom: 7px;
+      color: #d8af82;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+    .brand-contact-alert p {
+      margin: 0;
+      font-size: .86rem;
+      font-weight: 700;
+      letter-spacing: .055em;
+      line-height: 1.8;
+    }
     .brand-footer-copy {
       color: rgba(200,169,110,.46);
       font-family: "Noto Serif TC", serif;
@@ -694,78 +899,66 @@
       .brand-card {
         min-height: auto;
       }
+      .brand-reassurance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
     @media (max-width: 640px) {
       .brand-hero {
-        min-height: calc(100vh - 64px);
-        padding: 72px 18px 64px;
+        min-height: calc(100svh - 64px);
+        padding: 76px 18px 18px;
+        justify-content: flex-start;
       }
       .brand-hero::before {
         inset: 16% -30% auto;
         height: 58%;
       }
-      .brand-home-badges {
-        max-width: 320px;
-        gap: 8px;
-        margin-bottom: 14px;
-      }
-      .brand-home-badge:nth-child(n+3) {
-        display: none;
-      }
-      .brand-home-badge {
-        padding: 5px 12px;
-        font-size: .72rem;
-        letter-spacing: .12em;
-      }
-      .brand-home-social-proof {
+      .brand-hero-intro-tag {
         margin-bottom: 12px;
-        font-size: .78rem;
+        font-size: .71rem;
       }
       .brand-home-title {
-        margin-bottom: 16px;
-        font-size: clamp(2.25rem, 10.8vw, 3.05rem);
-        line-height: 1.45;
+        margin-bottom: 13px;
+        font-size: clamp(2.25rem, 10.4vw, 3.05rem);
+        line-height: 1.34;
         letter-spacing: .035em;
       }
-      .brand-home-stats {
+      .brand-hero-lead {
+        margin: 0 auto 13px;
+        font-size: .86rem;
+        line-height: 1.9;
+        letter-spacing: .035em;
+      }
+      .brand-hero-trust {
+        max-width: 320px;
+        margin-bottom: 13px;
+        font-size: .75rem;
+        line-height: 1.9;
+        letter-spacing: .045em;
+      }
+      .brand-hero-trust-line {
+        display: block;
+      }
+      .brand-hero-trust-line + .brand-hero-trust-line::before {
+        content: "";
+      }
+      .brand-hero-features {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
         max-width: 340px;
-        gap: 10px;
-        margin-bottom: 18px;
+        gap: 7px;
       }
-      .brand-home-stat {
-        flex: 1 1 0;
-        min-width: 0;
-        padding: 13px 10px;
-      }
-      .brand-home-stat strong {
-        font-size: 2rem;
-        white-space: nowrap;
-      }
-      .brand-home-stat span {
-        font-size: .68rem;
-        letter-spacing: .14em;
-      }
-      .brand-home-pills {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        width: 100%;
-        max-width: 360px;
-        gap: 6px;
-      }
-      .brand-home-pill {
-        width: 100%;
-        padding: 6px 4px;
-        font-size: .66rem;
-        letter-spacing: .04em;
-        white-space: nowrap;
-      }
-      .brand-home-alert {
-        margin-top: 26px;
-        font-size: .7rem;
+      .brand-hero-feature {
+        min-height: 35px;
+        padding: 6px 8px;
+        font-size: .72rem;
       }
       .brand-home-scroll {
-        margin-top: 28px;
+        margin-top: 14px;
+      }
+      .brand-contact-alert {
+        margin-top: 26px;
       }
       .brand-badges {
         gap: 8px;
@@ -820,12 +1013,20 @@
         width: 100%;
         margin-bottom: 22px;
       }
+      .brand-hero-actions .btn-primary,
       .brand-hero-actions .btn-outline {
-        width: min(240px, 100%);
+        width: 100%;
         min-width: 0;
+        min-height: 54px;
+        padding: 12px 10px;
+        font-size: .88rem;
       }
       .brand-hero-actions {
-        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 1fr;
+        width: min(100%, 340px);
+        margin: 18px auto 0;
+        gap: 8px;
       }
       .brand-contact-modal {
         align-items: end;
@@ -864,6 +1065,44 @@
       .brand-principle-num {
         left: 18px;
       }
+      .brand-reassurance-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 28px;
+      }
+      .brand-reassurance-card {
+        min-height: 160px;
+        padding: 18px 12px;
+      }
+      .brand-reassurance-card .tag {
+        margin-bottom: 14px;
+      }
+      .brand-reassurance-card h3 {
+        margin-bottom: 9px;
+        font-size: 1.04rem;
+      }
+      .brand-reassurance-card p,
+      .brand-step p {
+        font-size: .78rem;
+        line-height: 1.78;
+        letter-spacing: .015em;
+      }
+      .brand-steps {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: 28px;
+      }
+      .brand-step {
+        min-height: 0;
+        padding: 20px 16px;
+      }
+      .brand-step-num {
+        margin-bottom: 10px;
+      }
+      .brand-step h3 {
+        margin-bottom: 7px;
+        font-size: 1rem;
+      }
       .brand-contact-shell {
         padding: 32px 18px;
       }
@@ -893,63 +1132,76 @@
   <canvas id="velvet-bg" aria-hidden="true"></canvas>
 
   <nav>
-    <a class="nav-logo" href="/" aria-label="回到 AS 首頁"><img src="../logo.png?v=20260604-logo2" alt="AS" width="46" height="46" /><span class="nav-logo-text"><strong>AS</strong><span class="nav-home-hint">品牌介紹</span></span></a>
+    <a class="nav-logo" href="/" aria-label="回到 AS娛樂首頁"><img src="../logo.png?v=20260604-logo2" alt="AS娛樂" width="46" height="46" /><span class="nav-logo-text"><strong>AS娛樂</strong><span class="nav-home-hint">返回首頁</span></span></a>
     <div class="nav-links">
       <a href="/">首頁</a>
-      <a href="#belief">品牌理念</a>
-      <a href="/blog">文章</a>
-      <a href="#statement">常見問題</a>
-      <a href="#brand-contact-form" data-brand-contact>聯絡我</a>
+      <a href="/about">關於我</a>
+      <a href="/jobs">職缺介紹</a>
+      <a href="/knowledge">八大知識+</a>
+      <a href="/blog">部落格</a>
+      <a class="active" href="/brand">聯絡我</a>
     </div>
     <button class="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
   </nav>
   <div class="mobile-menu">
     <a href="/">首頁</a>
-    <a href="#belief">品牌理念</a>
-    <a href="/blog">文章</a>
-    <a href="#statement">常見問題</a>
-    <a href="#brand-contact-form" data-brand-contact>聯絡我</a>
+    <a href="/about">關於我</a>
+    <a href="/jobs">職缺介紹</a>
+    <a href="/knowledge">八大知識+</a>
+    <a href="/blog">部落格</a>
+    <a href="/brand">聯絡我</a>
   </div>
 
   <main>
     <section class="brand-hero" aria-labelledby="brand-title">
       <div class="brand-hero-inner">
-        <div class="brand-home-badges">
-          <span class="brand-home-badge">全台最多人詢問</span>
-          <span class="brand-home-badge">八大最誠實經紀</span>
-          <span class="brand-home-badge">七年個人面試 3000+</span>
-          <span class="brand-home-badge">有問必答</span>
+        <span class="brand-hero-intro-tag">第一次接觸也沒關係</span>
+        <h1 id="brand-title" class="brand-home-title"><span class="brand-title-line">不要讓未來的你</span><span class="brand-title-line">討厭現在的自己</span></h1>
+        <p class="brand-hero-lead">收入怎麼算 工作內容是什麼 自己適不適合<br>三分鐘先了解清楚 再決定要不要開始</p>
+        <p class="brand-hero-trust"><span class="brand-hero-trust-line">7 年經驗｜<strong id="brand-hero-interview-count">3451+</strong> 面談</span><span class="brand-hero-trust-line">不簽合約｜不壓薪水</span></p>
+        <div class="brand-hero-features" aria-label="快速了解網站內容">
+          <a class="brand-hero-feature" href="../jobs#income-tool" data-brand-event="cta_a_income_feature">收入試算</a>
+          <a class="brand-hero-feature" href="../jobs#fit-quiz" data-brand-event="cta_a_suitability_feature">適合度測驗</a>
+          <a class="brand-hero-feature" href="../knowledge" data-brand-event="cta_a_knowledge_feature">八大知識</a>
+          <a class="brand-hero-feature" href="../#faq" data-brand-event="cta_a_faq_feature">常見問題</a>
         </div>
-        <div class="brand-home-social-proof">
-          <span class="brand-home-dot"></span>
-          <span>本週已有 <strong id="brand-weekly-count">--</strong> 人詢問</span>
-        </div>
-        <h1 id="brand-title" class="brand-home-title">不要讓未來的你<br>討厭現在的自己</h1>
-        <div class="brand-home-stats" aria-label="AS 累積數據">
-          <div class="brand-home-stat">
-            <strong>7年</strong>
-            <span>從業年資</span>
-          </div>
-          <div class="brand-home-stat">
-            <strong id="brand-interview-count">3375+</strong>
-            <span>個人面試人數</span>
-          </div>
-        </div>
-        <div class="brand-home-pills" aria-label="AS 重視的原則">
-          <span class="brand-home-pill">不簽合約</span>
-          <span class="brand-home-pill">不壓薪水</span>
-          <span class="brand-home-pill">自由排班</span>
-          <span class="brand-home-pill">隱私安全</span>
-        </div>
-        <p class="brand-home-alert">因同行長期眼紅檢舉我　目前 IG 帳號會一直更換<br>想更快找到我可以直接加 LINE</p>
         <div class="brand-hero-actions">
-          <a class="btn-outline" href="/">回到首頁</a>
-          <a class="btn-outline" href="#brand-contact-form" data-brand-contact>聯絡我</a>
+          <a class="btn-primary" href="../jobs#income-tool" data-brand-event="cta_a_income_calculator">免費收入試算</a>
+          <a class="btn-outline" href="#brand-contact-form" data-brand-contact data-brand-event="cta_a_anonymous_question">先匿名問問題</a>
         </div>
         <a class="brand-home-scroll" href="#belief" aria-label="前往品牌理念">
           <span>向下探索更多內容</span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+      </div>
+    </section>
+
+    <section class="brand-section" aria-labelledby="brand-reassurance-title">
+      <div class="wide-container">
+        <span class="section-label">先把擔心的事說清楚</span>
+        <h2 id="brand-reassurance-title" class="section-title">你在意的事<br>本來就該先問</h2>
+        <div class="brand-reassurance-grid">
+          <article class="brand-reassurance-card">
+            <span class="tag">01</span>
+            <h3>不簽合約</h3>
+            <p>先了解內容<br>不代表要立刻決定</p>
+          </article>
+          <article class="brand-reassurance-card">
+            <span class="tag">02</span>
+            <h3>薪資透明</h3>
+            <p>細節與規則<br>應該先講清楚</p>
+          </article>
+          <article class="brand-reassurance-card">
+            <span class="tag">03</span>
+            <h3>時間安排</h3>
+            <p>先說你的狀況<br>再一起看方向</p>
+          </article>
+          <article class="brand-reassurance-card">
+            <span class="tag">04</span>
+            <h3>隱私安全</h3>
+            <p>你在意的界線<br>都可以先問清楚</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -984,6 +1236,30 @@
           </div>
         </div>
         <p class="brand-stats-note">經驗不是用來說服任何人<br>而是用來把資訊整理得更清楚。</p>
+      </div>
+    </section>
+
+    <section class="brand-section" aria-labelledby="brand-steps-title">
+      <div class="brand-narrow">
+        <span class="section-label">簡單三步</span>
+        <h2 id="brand-steps-title" class="section-title">不用急著做決定</h2>
+        <div class="brand-steps">
+          <article class="brand-step">
+            <span class="brand-step-num">01</span>
+            <h3>先寫下想問的事</h3>
+            <p>不需要留下姓名<br>年齡區間也可以略過</p>
+          </article>
+          <article class="brand-step">
+            <span class="brand-step-num">02</span>
+            <h3>本人親自回覆</h3>
+            <p>你可以先把在意的事<br>一項一項問清楚</p>
+          </article>
+          <article class="brand-step">
+            <span class="brand-step-num">03</span>
+            <h3>再由你自己決定</h3>
+            <p>了解後想不想繼續<br>都由你自己判斷</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -1041,13 +1317,17 @@
       <div class="brand-narrow">
         <div class="brand-contact-shell">
           <span class="section-label">聯絡 AS</span>
-          <h2 id="brand-contact-section-title">先留下基本資訊<br>再開始聊</h2>
-          <p>姓名、年齡與性別只用於這次聯繫前的基本了解<br>填寫後會開啟 LINE，由本人親自回覆</p>
+          <h2 id="brand-contact-section-title">有問題<br>可以先匿名問</h2>
+          <p>不用留下姓名<br>把你最在意的事先寫下來就好</p>
           <div class="brand-contact-actions">
-            <a class="btn-primary" href="#brand-contact-form" data-brand-contact>填寫聯絡資訊</a>
-            <a class="btn-outline" href="mailto:angus061855@gmail.com?subject=AS%20%E8%81%AF%E7%B5%A1%E6%B4%BD%E8%A9%A2">Email 聯絡</a>
+            <a class="btn-primary" href="#brand-contact-form" data-brand-contact>先匿名問問題</a>
+            <a class="btn-outline" href="/">回到首頁</a>
           </div>
           <p class="brand-contact-hint">不需要在這裡做任何決定　先了解就好</p>
+          <div class="brand-contact-alert" role="note">
+            <span>聯絡提醒</span>
+            <p>因社群帳號可能不定期更換<br>建議透過官方 LINE 保持聯絡</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1072,29 +1352,26 @@
     <section class="brand-contact-panel" role="dialog" aria-modal="true" aria-labelledby="brand-contact-title">
       <button class="brand-contact-close" type="button" data-brand-contact-close aria-label="關閉表單">×</button>
       <span class="section-label">聯繫 AS</span>
-      <h2 id="brand-contact-title">先留下基本資訊</h2>
-      <p>填完後才會開啟 LINE<br>方便我先知道該怎麼回覆你</p>
+      <h2 id="brand-contact-title">先把想問的事寫下來</h2>
+      <p>不用留下姓名<br>送出後會開啟 LINE，由本人親自回覆</p>
       <form class="brand-contact-form" id="brand-contact-form">
         <label class="brand-contact-field">
-          姓名
-          <input name="leadName" type="text" autocomplete="name" required />
+          你最想問的是什麼？
+          <textarea name="leadQuestion" maxlength="500" required placeholder="例如：我想先了解合約、薪資、時間安排或隱私問題"></textarea>
         </label>
         <label class="brand-contact-field">
-          年齡
-          <input name="leadAge" type="number" inputmode="numeric" min="18" max="80" required />
-        </label>
-        <label class="brand-contact-field">
-          性別
-          <select name="leadGender" required>
-            <option value="">請選擇</option>
-            <option value="女">女</option>
-            <option value="男">男</option>
-            <option value="其他／不方便說">其他／不方便說</option>
+          年齡區間（可不填）
+          <select name="leadAgeRange">
+            <option value="">不想填也可以</option>
+            <option value="18–20">18–20</option>
+            <option value="21–25">21–25</option>
+            <option value="26–30">26–30</option>
+            <option value="31+">31+</option>
           </select>
         </label>
-        <button class="btn-primary" type="submit">填好後前往 LINE</button>
-        <p class="brand-contact-error" id="brand-contact-error" role="alert" hidden>請先把三個欄位填完整</p>
-        <p class="brand-contact-note">資料只用於這次聯繫前的基本了解</p>
+        <button class="btn-primary" type="submit">帶著問題前往 LINE</button>
+        <p class="brand-contact-error" id="brand-contact-error" role="alert" hidden>請先寫下你想問的事</p>
+        <p class="brand-contact-note">內容不會儲存在網站。送出時會先複製，開啟 LINE 後可直接貼上。</p>
       </form>
     </section>
   </div>
@@ -1115,9 +1392,20 @@
       const weeklyCount = document.getElementById('brand-weekly-count');
       if (weeklyCount) weeklyCount.textContent = weeklyBase[dayIndex] + Math.floor(now.getHours() * .7);
 
+      function animateCounter(element, target, duration, suffix) {
+        const startedAt = Date.now();
+        const update = () => {
+          const progress = Math.min((Date.now() - startedAt) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          element.textContent = `${Math.floor(eased * target)}${suffix || ''}`;
+          if (progress < 1) requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+      }
+
       function getInterviewCount() {
         const startDate = new Date('2026-03-01');
-        const days = Math.max(0, Math.floor((now - startDate) / 86400000));
+        const days = Math.floor((new Date() - startDate) / (1000 * 60 * 60 * 24));
         let total = 3000;
         for (let index = 0; index < days; index += 1) {
           const date = new Date(startDate);
@@ -1130,9 +1418,19 @@
 
       const interviewTotal = getInterviewCount();
       const interviewCount = document.getElementById('brand-interview-count');
+      const heroInterviewCount = document.getElementById('brand-hero-interview-count');
       const trustInterviewCount = document.getElementById('brand-trust-interview-count');
-      if (interviewCount) interviewCount.textContent = `${interviewTotal}+`;
-      if (trustInterviewCount) trustInterviewCount.textContent = `${interviewTotal}+`;
+      if (interviewCount) animateCounter(interviewCount, interviewTotal, 1800, '+');
+      if (heroInterviewCount) animateCounter(heroInterviewCount, interviewTotal, 1800, '+');
+      if (trustInterviewCount) animateCounter(trustInterviewCount, interviewTotal, 1800, '+');
+
+      function trackBrandEvent(eventName) {
+        if (typeof window.fbq === 'function') window.fbq('trackCustom', eventName);
+      }
+
+      document.querySelectorAll('[data-brand-event]').forEach((trigger) => {
+        trigger.addEventListener('click', () => trackBrandEvent(trigger.dataset.brandEvent));
+      });
 
       function openContactForm(event) {
         if (event) event.preventDefault();
@@ -1146,7 +1444,7 @@
         lastFocus = document.activeElement;
         modal.hidden = false;
         document.body.style.overflow = 'hidden';
-        const firstInput = form.querySelector('input, select, button');
+        const firstInput = form.querySelector('textarea, input, select, button');
         if (firstInput) firstInput.focus();
       }
 
@@ -1167,17 +1465,16 @@
       form.addEventListener('submit', event => {
         event.preventDefault();
         const formData = new FormData(form);
-        const name = String(formData.get('leadName') || '').trim();
-        const age = String(formData.get('leadAge') || '').trim();
-        const gender = String(formData.get('leadGender') || '').trim();
+        const question = String(formData.get('leadQuestion') || '').trim();
+        const ageRange = String(formData.get('leadAgeRange') || '').trim();
 
-        if (!name || !age || !gender || !form.checkValidity()) {
+        if (!question || !form.checkValidity()) {
           if (error) error.hidden = false;
           form.reportValidity();
           return;
         }
 
-        const message = `你好 我想先了解 AS\n姓名：${name}\n年齡：${age}\n性別：${gender}`;
+        const message = `你好，我想先問：\n${question}${ageRange ? `\n\n年齡區間：${ageRange}` : ''}`;
         sessionStorage.setItem('asBrandContactDraft', message);
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(message).catch(() => {});
