@@ -35,18 +35,19 @@
     .brand-page > main {
       padding-top: 0;
     }
-    @media (max-width: 1100px) {
-      .brand-page > nav + .mobile-menu + main {
-        padding-top: 0;
-      }
-    }
+@media (max-width: 1100px) {
+  .brand-page > nav + .mobile-menu + main {
+    /* Mobile navigation is fixed in the shared stylesheet. Keep the hero below it. */
+    padding-top: 69px;
+  }
+}
     .brand-hero {
-      min-height: calc(100svh - 72px);
+      min-height: min(780px, calc(100svh - 72px));
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      padding: 82px 24px 30px;
+      padding: 36px 24px 28px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -86,7 +87,7 @@
       justify-content: center;
     }
     .brand-home-badges {
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
     .brand-home-badge {
       display: inline-block;
@@ -104,7 +105,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       padding: 6px 16px;
       border: 1px solid rgba(200,169,110,.2);
       border-radius: var(--radius-pill);
@@ -447,20 +448,20 @@
     }
     .brand-hero-actions {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      width: min(100%, 510px);
-      margin: 20px auto 0;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: min(100%, 1040px);
+      margin: 18px auto 0;
       gap: 10px;
     }
     .brand-hero-actions .btn-primary,
     .brand-hero-actions .btn-outline {
       width: 100%;
-      min-width: 220px;
-      min-height: 54px;
+      min-width: 0;
+      min-height: 52px;
       justify-content: center;
     }
     .brand-hero-actions .btn-primary {
-      font-size: .94rem;
+      font-size: .88rem;
       font-weight: 800;
     }
     .brand-hero-actions .btn-outline {
@@ -475,6 +476,16 @@
       border-color: rgba(224,192,128,.42);
       color: #f0e7d8;
       box-shadow: none;
+    }
+    .brand-hero-actions .brand-action-official-line {
+      border-color: rgba(46, 182, 104, .58);
+      background: rgba(12, 48, 30, .42);
+      color: #bff4d5;
+    }
+    .brand-hero-actions .brand-action-official-line:hover,
+    .brand-hero-actions .brand-action-official-line:focus-visible {
+      border-color: rgba(98, 225, 149, .76);
+      color: #d8ffe7;
     }
     .brand-contact-modal[hidden] {
       display: none;
@@ -905,8 +916,8 @@
     }
     @media (max-width: 640px) {
       .brand-hero {
-        min-height: calc(100svh - 64px);
-        padding: 76px 18px 18px;
+        min-height: 0;
+        padding: 26px 18px 24px;
         justify-content: flex-start;
       }
       .brand-hero::before {
@@ -916,6 +927,20 @@
       .brand-hero-intro-tag {
         margin-bottom: 12px;
         font-size: .71rem;
+      }
+      .brand-home-badges {
+        gap: 7px;
+        margin-bottom: 10px;
+      }
+      .brand-home-badge {
+        padding: 5px 9px;
+        font-size: .65rem;
+        letter-spacing: .05em;
+      }
+      .brand-home-social-proof {
+        margin-bottom: 10px;
+        padding: 5px 12px;
+        font-size: .72rem;
       }
       .brand-home-title {
         margin-bottom: 13px;
@@ -928,6 +953,38 @@
         font-size: .86rem;
         line-height: 1.9;
         letter-spacing: .035em;
+      }
+      .brand-home-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: min(100%, 360px);
+        margin: 0 auto 12px;
+      }
+      .brand-home-stat {
+        min-width: 0;
+        padding: 14px 10px;
+      }
+      .brand-home-stat strong {
+        font-size: 2.25rem;
+      }
+      .brand-home-stat span {
+        margin-top: 5px;
+        font-size: .64rem;
+      }
+      .brand-home-pills {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        width: min(100%, 380px);
+        gap: 6px;
+        margin: 0 auto 14px;
+      }
+      .brand-home-pill {
+        min-width: 0;
+        padding: 7px 2px;
+        font-size: .64rem;
+        letter-spacing: 0;
+        white-space: nowrap;
       }
       .brand-hero-trust {
         max-width: 320px;
@@ -1017,15 +1074,15 @@
       .brand-hero-actions .btn-outline {
         width: 100%;
         min-width: 0;
-        min-height: 54px;
+        min-height: 48px;
         padding: 12px 10px;
-        font-size: .88rem;
+        font-size: .76rem;
       }
       .brand-hero-actions {
         display: grid;
-        grid-template-columns: 1fr;
-        width: min(100%, 340px);
-        margin: 18px auto 0;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(100%, 380px);
+        margin: 14px auto 0;
         gap: 8px;
       }
       .brand-contact-modal {
@@ -1155,19 +1212,25 @@
   <main>
     <section class="brand-hero" aria-labelledby="brand-title">
       <div class="brand-hero-inner">
-        <span class="brand-hero-intro-tag">第一次接觸也沒關係</span>
-        <h1 id="brand-title" class="brand-home-title"><span class="brand-title-line">不要讓未來的你</span><span class="brand-title-line">討厭現在的自己</span></h1>
-        <p class="brand-hero-lead">收入怎麼算 工作內容是什麼 自己適不適合<br>三分鐘先了解清楚 再決定要不要開始</p>
-        <p class="brand-hero-trust"><span class="brand-hero-trust-line">7 年經驗｜<strong id="brand-hero-interview-count">3451+</strong> 面談</span><span class="brand-hero-trust-line">不簽合約｜不壓薪水</span></p>
-        <div class="brand-hero-features" aria-label="快速了解網站內容">
-          <a class="brand-hero-feature" href="../jobs#income-tool" data-brand-event="cta_a_income_feature">收入試算</a>
-          <a class="brand-hero-feature" href="../jobs#fit-quiz" data-brand-event="cta_a_suitability_feature">適合度測驗</a>
-          <a class="brand-hero-feature" href="../knowledge" data-brand-event="cta_a_knowledge_feature">八大知識</a>
-          <a class="brand-hero-feature" href="../#faq" data-brand-event="cta_a_faq_feature">常見問題</a>
+        <div class="brand-home-badges" aria-label="AS特色">
+          <span class="brand-home-badge">全台最多人詢問</span>
+          <span class="brand-home-badge">八大最誠實經紀</span>
+          <span class="brand-home-badge">七年個人面試3000+</span>
+          <span class="brand-home-badge">有問必答</span>
         </div>
+        <p class="brand-home-social-proof"><span class="brand-home-dot"></span>本週已有 <strong id="brand-weekly-count">--</strong> 人詢問</p>
+        <h1 id="brand-title" class="brand-home-title"><span class="brand-title-line">不要讓未來的你</span><span class="brand-title-line">討厭現在的自己</span></h1>
+        <p class="brand-hero-lead">收入怎麼算 工作內容是什麼 自己適不適合<br>先把資訊了解清楚 再決定下一步要不要聊</p>
+        <div class="brand-home-stats" aria-label="AS經驗數據">
+          <div class="brand-home-stat"><strong>7年</strong><span>從業年資</span></div>
+          <div class="brand-home-stat"><strong id="brand-hero-interview-count">3451+</strong><span>個人面試人數</span></div>
+        </div>
+        <div class="brand-home-pills" aria-label="AS服務原則"><span class="brand-home-pill">不簽合約</span><span class="brand-home-pill">不壓薪水</span><span class="brand-home-pill">自由排班</span><span class="brand-home-pill">隱私安全</span></div>
         <div class="brand-hero-actions">
-          <a class="btn-primary" href="../jobs#income-tool" data-brand-event="cta_a_income_calculator">免費收入試算</a>
-          <a class="btn-outline" href="#brand-contact-form" data-brand-contact data-brand-event="cta_a_anonymous_question">先匿名問問題</a>
+          <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer" data-brand-event="cta_a_direct_line">立即詢問</a>
+          <a class="btn-outline brand-action-official-line" href="https://lin.ee/8COZQMn" target="_blank" rel="noopener noreferrer" data-brand-event="cta_a_official_line">官方 LINE</a>
+          <a class="btn-outline" href="https://www.tiktok.com/@angus061855?_r=1&amp;_t=ZS-96xymY3pCVA" target="_blank" rel="noopener noreferrer" data-brand-event="cta_a_video">八大影片</a>
+          <a class="btn-outline" href="https://www.instagram.com/as.mask_/" target="_blank" rel="noopener noreferrer" data-brand-event="cta_a_instagram">官方 IG</a>
         </div>
         <a class="brand-home-scroll" href="#belief" aria-label="前往品牌理念">
           <span>向下探索更多內容</span>
