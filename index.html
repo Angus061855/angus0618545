@@ -513,21 +513,21 @@
     @media (max-width: 480px) { .reviews-grid { grid-template-columns: 1fr; } }
 
     /* 精選紀錄預覽 */
-    .highlights-preview { margin-top: 44px; padding-top: 36px; border-top: 1px solid rgba(200,169,110,0.16); }
-    .highlights-preview-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+    .highlights-preview { margin-top: 40px; }
+    .highlights-preview-head { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; margin-bottom: 24px; text-align: center; }
     .highlights-preview-kicker { color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; margin-bottom: 8px; }
     .highlights-preview-title { margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; color: var(--text); }
-    .highlights-preview-link { color: var(--accent2); font-size: 0.86rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; white-space: nowrap; padding: 10px 0; border-bottom: 1px solid rgba(200,169,110,0.4); }
-    .highlights-preview-link:hover { color: #f2d695; border-color: rgba(200,169,110,0.85); }
-    .highlights-preview-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .highlights-preview-link { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; color: var(--accent2); font-size: 0.86rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; white-space: nowrap; background: rgba(18,14,9,0.7); border: 1px solid rgba(200,169,110,0.42); border-radius: var(--radius-card); transition: color 0.2s, border-color 0.2s, background 0.2s; }
+    .highlights-preview-link:hover { color: #f2d695; border-color: rgba(200,169,110,0.82); background: rgba(200,169,110,0.08); }
+    .highlights-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .highlights-preview-card { display: block; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid rgba(200,169,110,0.22); border-radius: var(--radius-card); background: #0b0907; }
     .highlights-preview-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
     .highlights-preview-card:hover img { transform: scale(1.035); }
     @media (max-width: 600px) {
-      .highlights-preview { margin-top: 34px; padding-top: 30px; }
-      .highlights-preview-head { align-items: flex-start; flex-direction: column; gap: 12px; }
-      .highlights-preview-link { padding: 0 0 7px; }
-      .highlights-preview-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .highlights-preview { margin-top: 34px; }
+      .highlights-preview-head { align-items: center; gap: 14px; margin-bottom: 20px; }
+      .highlights-preview-link { min-height: 44px; padding: 0 18px; }
+      .highlights-preview-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     }
 
     /* FAQ */
@@ -1407,13 +1407,12 @@
             <p class="highlights-preview-kicker">精選紀錄</p>
             <h3 class="highlights-preview-title">那些先問清楚<br>才更能安心的事</h3>
           </div>
-          <a class="highlights-preview-link" href="/highlights/">查看精選紀錄&nbsp;→</a>
+          <a class="highlights-preview-link" href="/highlights/">查看真實心得</a>
         </div>
         <div class="highlights-preview-grid">
           <a class="highlights-preview-card" href="/highlights/" aria-label="查看精選紀錄第 1 張"><img src="assets/highlights/story-01.jpg" alt="AS 精選紀錄" width="1080" height="1920" loading="lazy"></a>
           <a class="highlights-preview-card" href="/highlights/" aria-label="查看精選紀錄第 2 張"><img src="assets/highlights/story-02.jpg" alt="AS 精選紀錄" width="1080" height="1920" loading="lazy"></a>
           <a class="highlights-preview-card" href="/highlights/" aria-label="查看精選紀錄第 3 張"><img src="assets/highlights/story-03.jpg" alt="AS 精選紀錄" width="1080" height="1920" loading="lazy"></a>
-          <a class="highlights-preview-card" href="/highlights/" aria-label="查看精選紀錄第 4 張"><img src="assets/highlights/story-04.jpg" alt="AS 精選紀錄" width="1080" height="1920" loading="lazy"></a>
         </div>
       </div>
 
