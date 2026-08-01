@@ -6,6 +6,17 @@
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
   align-items: stretch !important;
+  gap: 10px !important;
+}
+
+.home-contact-actions > a,
+.final-contact-actions > a,
+.post-cta-actions > a,
+.hero-cta.cta-three > a {
+  min-height: 50px !important;
+  padding: 12px 8px !important;
+  font-size: 0.88rem !important;
+  white-space: nowrap !important;
 }
 
 .instagram-outline,
@@ -42,11 +53,14 @@
   border-color: rgba(224,192,128,.76) !important;
 }
 
-@media (max-width: 390px) {
+@media (max-width: 700px) {
   .home-contact-actions,
   .final-contact-actions,
   .post-cta-actions,
   .hero-cta.cta-three {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: min(100%, 360px) !important;
+    margin-inline: auto !important;
   }
 }

@@ -62,7 +62,109 @@
     .highlights-float-line::before { width: 7px; height: 7px; border-radius: 50%; background: #38be85; box-shadow: 0 0 10px rgba(56,190,133,.65); content: ''; }
     @media (max-width: 900px) { .highlights-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
     @media (max-width: 700px) { .highlights-main { padding: 84px 16px 68px; } .highlights-hero { margin: 4px auto 42px; padding: 6px 8px 0; } .highlights-kicker { margin-bottom: 12px; font-size: .92rem; } .highlights-title { font-size: clamp(2.4rem, 11vw, 3.2rem); line-height: 1.2; } .highlights-intro { font-size: .9rem; margin-top: 18px; } .highlights-actions { gap: 10px; margin-top: 22px; } .highlights-action { min-height: 48px; padding: 0 12px; font-size: .84rem; } .highlights-record-warning { margin-top: 24px; padding-top: 14px; font-size: .76rem; line-height: 1.85; } .highlights-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .highlight-story::after { opacity: 1; } .story-dialog img { height: min(70dvh, 760px); } .story-dialog-actions { padding: 10px 14px 14px; } .highlights-float-line { right: 14px; bottom: 16px; min-height: 42px; padding: 0 16px; font-size: .82rem; } }
-  </style>
+  .highlights-social-cta {
+    width: min(740px, 100%);
+    margin: 30px auto 0;
+  }
+
+  .highlights-home-contact {
+    position: relative;
+    z-index: 1;
+    margin: 92px -24px 0;
+    padding: 100px 24px 92px;
+    overflow: hidden;
+    text-align: center;
+    border-top: 1px solid rgba(200, 169, 110, 0.2);
+    background: linear-gradient(180deg, rgba(8, 8, 7, 0.08), rgba(16, 13, 9, 0.82));
+  }
+
+  .highlights-home-contact::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    background: linear-gradient(120deg, transparent 24%, rgba(200, 169, 110, 0.045) 48%, transparent 70%);
+  }
+
+  .highlights-contact-inner {
+    position: relative;
+    width: min(840px, 100%);
+    margin: 0 auto;
+  }
+
+  .highlights-contact-kicker {
+    margin: 0;
+    color: #d6b269;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+  }
+
+  .highlights-contact-sub {
+    margin: 24px 0 32px;
+    color: #969696;
+    font-size: clamp(1rem, 1.55vw, 1.18rem);
+    line-height: 1.75;
+  }
+
+  .highlights-home-contact h2 {
+    margin: 0;
+    color: #f5f1e9;
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(2.5rem, 5.4vw, 4.35rem);
+    line-height: 1.22;
+  }
+
+  .highlights-contact-lead {
+    margin: 24px 0 0;
+    color: #a6a19a;
+    font-size: 1.04rem;
+  }
+
+  .highlights-bottom-actions {
+    width: min(740px, 100%);
+    margin: 34px auto 0;
+  }
+
+  .highlights-contact-alert {
+    max-width: 650px;
+    margin: 32px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid rgba(231, 102, 102, 0.38);
+    color: #e9837e;
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.7;
+  }
+
+  .highlights-contact-reply {
+    margin: 16px 0 0;
+    color: #888;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 700px) {
+    .highlights-home-contact {
+      margin: 64px -16px 0;
+      padding: 74px 16px 64px;
+    }
+
+    .highlights-contact-sub {
+      margin: 18px 0 26px;
+      font-size: 0.96rem;
+    }
+
+    .highlights-contact-lead {
+      font-size: 0.92rem;
+    }
+
+    .highlights-contact-alert {
+      margin-top: 26px;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+  <link rel="stylesheet" href="../social-cta.css?v=20260801-cta3">
 </head>
 <body class="highlights-page">
   <nav>
@@ -77,19 +179,37 @@
         <p class="highlights-kicker">精選紀錄</p>
         <h1 class="highlights-title">那些先問清楚<br>才更能安心的事</h1>
         <p class="highlights-intro">把常見的提問與回覆整理留在這裡<br>完整收錄 80 張精選紀錄　所有畫面皆以匿名方式呈現</p>
-        <div class="highlights-actions" aria-label="精選紀錄操作">
-          <a class="highlights-action" href="../index.html">回到首頁</a>
-          <a class="highlights-action highlights-action-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer">立即詢問</a>
-        </div>
+      <div class="hero-cta cta-three highlights-social-cta" aria-label="精選紀錄聯絡方式">
+        <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer">立即詢問</a>
+        <a class="btn-outline official-line-outline" href="https://lin.ee/8COZQMn" target="_blank" rel="noopener noreferrer">官方 LINE</a>
+        <a class="btn-outline video-outline" href="https://www.tiktok.com/@angus061855?_r=1&_t=ZS-96xymY3pCVA" target="_blank" rel="noopener noreferrer">八大影片</a>
+        <a class="btn-outline instagram-outline" href="https://www.instagram.com/" data-official-instagram target="_blank" rel="noopener noreferrer">官方 IG</a>
+      </div>
         <p class="highlights-record-warning">
           原本累積超過 1.1 萬人的帳號，因長期遭同行檢舉而永久停用。<br>
           這裡保留下來的公關回饋、精選與貼文，是我特別找回並重新整理的紀錄；其他內容已無法復原。
         </p>
       </header>
-      <section class="highlights-grid" aria-label="精選紀錄圖牆"></section>
-      <p class="highlights-note">圖片僅保留內容重點　所有可辨識資訊均已移除</p>
+    <section class="highlights-grid" aria-label="精選紀錄圖牆"></section>
+    <p class="highlights-note">圖片僅保留內容重點　所有可辨識資訊均已移除</p>
+  </div>
+  <section class="highlights-home-contact" aria-labelledby="highlights-contact-title">
+    <div class="highlights-contact-inner">
+      <p class="highlights-contact-kicker">有　問　必　答</p>
+      <p class="highlights-contact-sub">問問題　不代表你要來做<br>但如果你不問我<br>你永遠不會知道</p>
+      <h2 id="highlights-contact-title">八大行業<br>到底長什麼樣子</h2>
+      <p class="highlights-contact-lead">不管你問什麼　我都有問必答</p>
+      <div class="hero-cta cta-three highlights-bottom-actions" aria-label="精選紀錄聯絡方式">
+        <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer">立即詢問</a>
+        <a class="btn-outline official-line-outline" href="https://lin.ee/8COZQMn" target="_blank" rel="noopener noreferrer">官方 LINE</a>
+        <a class="btn-outline video-outline" href="https://www.tiktok.com/@angus061855?_r=1&_t=ZS-96xymY3pCVA" target="_blank" rel="noopener noreferrer">八大影片</a>
+        <a class="btn-outline instagram-outline" href="https://www.instagram.com/" data-official-instagram target="_blank" rel="noopener noreferrer">官方 IG</a>
+      </div>
+      <p class="highlights-contact-alert">因同行長期眼紅檢舉我　目前 IG 帳號會一直更換<br>想更快找到我可以直接加 LINE</p>
+      <p class="highlights-contact-reply">我會親自回覆　不是 AI 回覆</p>
     </div>
-  </main>
+  </section>
+</main>
   <footer class="highlights-footer">
     <div class="highlights-footer-brand"><img src="../logo.png?v=20260604-logo2" alt="AS娛樂" width="32" height="32"><span>AS娛樂</span></div>
     <p>八大最誠實經紀　大頭</p>
