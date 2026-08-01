@@ -498,6 +498,8 @@
       place-items: center;
       padding: 24px;
     }
+    .brand-float-line { position: fixed; z-index: 30; right: clamp(16px, 2.4vw, 36px); bottom: clamp(18px, 2.6vw, 30px); display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border: 1px solid rgba(200,169,110,.55); border-radius: 999px; background: rgba(8,8,6,.9); box-shadow: 0 8px 28px rgba(0,0,0,.4); color: var(--accent2); font-size: .88rem; font-weight: 700; text-decoration: none; }
+    .brand-float-line::before { width: 7px; height: 7px; border-radius: 50%; background: #38be85; box-shadow: 0 0 10px rgba(56,190,133,.65); content: ''; }
     .brand-contact-backdrop {
       position: absolute;
       inset: 0;
@@ -974,18 +976,23 @@
       }
       .brand-home-pills {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        width: min(100%, 380px);
-        gap: 6px;
-        margin: 0 auto 14px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(100%, 360px);
+        gap: 8px;
+        margin: 0 auto 16px;
       }
       .brand-home-pill {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         min-width: 0;
-        padding: 7px 2px;
-        font-size: .64rem;
-        letter-spacing: 0;
+        min-height: 40px;
+        padding: 7px 8px;
+        font-size: .72rem;
+        letter-spacing: .06em;
         white-space: nowrap;
       }
+      .brand-float-line { right: 14px; bottom: 16px; min-height: 42px; padding: 0 16px; font-size: .82rem; }
       .brand-hero-trust {
         max-width: 320px;
         margin-bottom: 13px;
@@ -1440,6 +1447,7 @@
       </form>
     </section>
   </div>
+  <a class="brand-float-line" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer" aria-label="立即詢問，前往個人 LINE">立即詢問</a>
 
   <script>
     (function () {
