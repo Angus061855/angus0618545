@@ -436,7 +436,10 @@
       .hero-sub-shine { font-size: 2.4rem !important; }
     }
     @media (max-width: 640px) {
-      #hero { min-height: auto; padding: 100px 18px 54px; }
+      nav { padding: 14px 20px; }
+      .nav-logo-text { display: none; }
+      .nav-logo img { height: 56px; }
+      #hero { min-height: auto; padding: 120px 18px 26px; }
       #hero .hero-stats { gap: 10px; width: 100%; max-width: 340px; }
       #hero .stat-num { font-size: 2rem; white-space: nowrap; }
       #hero .stat { padding: 13px 10px; flex: 1 1 0; min-width: 0; max-width: none; }
@@ -457,39 +460,31 @@
       }
       #hero .hero-badges { max-width: 320px; }
       #hero .hero-badges .hero-badge:nth-child(n+3) { display: none; }
-      #hero .hero-social-proof { margin-bottom: 14px; }
-      #hero .hero-sub-shine { margin-bottom: 22px; }
-      #hero .hero-pills { margin-bottom: 28px; }
-      #hero .hero-stats { margin-bottom: 28px; }
+      #hero .hero-badges { margin-bottom: 14px; }
+      #hero .hero-social-proof { margin-bottom: 12px; }
+      #hero .hero-sub-shine { margin-bottom: 16px; }
+      #hero .hero-pills { margin-bottom: 18px; }
+      #hero .hero-stats { margin-bottom: 18px; }
       #hero .hero-cta {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px;
-        width: auto;
-        max-width: none;
         margin-bottom: 0;
       }
       #hero .hero-cta .btn-primary,
       #hero .hero-cta .btn-outline {
-        width: auto;
-        min-height: 0;
-        padding: 14px 36px;
-        font-size: 0.95rem;
-        letter-spacing: 0.12em;
+        min-height: 46px;
       }
       #hero .hero-cta.cta-three {
-        display:grid;
-        grid-template-columns:repeat(4,minmax(0,1fr));
-        width:100%;
-        max-width:390px;
+        display: grid;
+        grid-template-columns: repeat(4,minmax(0,1fr));
+        width: 100%;
+        max-width: 360px;
+        gap: 6px;
       }
       #hero .hero-cta.cta-three .btn-primary,
       #hero .hero-cta.cta-three .btn-outline {
-        width:100%;
-        padding:12px 8px;
-        font-size:.82rem;
-        letter-spacing:.04em;
+        width: 100%;
+        padding: 12px 8px;
+        font-size: .82rem;
+        letter-spacing: .04em;
       }
       #hero .hero-line-alert {
         margin-top: 26px;
