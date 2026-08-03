@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#060606">
-  <title>精選紀錄｜AS娛樂</title>
-  <meta name="description" content="AS娛樂精選紀錄，整理那些先問清楚才更能安心的事。">
+  <title>公關真實心得｜AS娛樂</title>
+  <meta name="description" content="AS娛樂公關真實心得與精選紀錄，所有畫面皆以匿名方式呈現。">
   <link rel="canonical" href="https://as-ent-tw.com/highlights/">
-  <meta property="og:title" content="精選紀錄｜AS娛樂">
-  <meta property="og:description" content="那些先問清楚才更能安心的事。">
+  <meta property="og:title" content="公關真實心得｜AS娛樂">
+  <meta property="og:description" content="AS娛樂公關真實心得與精選紀錄，所有畫面皆以匿名方式呈現。">
   <meta property="og:type" content="website">
   <link rel="icon" href="../logo.png?v=20260604-logo2" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +20,10 @@
     .highlights-main { padding: 96px 24px 88px; position: relative; }
     .highlights-main::before { content: ''; position: fixed; inset: 0; pointer-events: none; background: linear-gradient(120deg, transparent 12%, rgba(200,169,110,.035) 35%, transparent 53%); opacity: .72; }
     .highlights-wrap { width: min(1180px, 100%); margin: 0 auto; position: relative; z-index: 1; }
-    .highlights-hero { text-align: center; margin: 8px auto 60px; max-width: 760px; padding: 18px 16px 0; }
+    .highlights-hero { position: relative; isolation: isolate; text-align: center; margin: 8px auto 60px; max-width: 900px; padding: 28px 16px 10px; }
+    .highlights-hero::before { content: ''; position: absolute; z-index: -1; pointer-events: none; inset: -28px -14% -16px; background: linear-gradient(108deg, transparent 20%, rgba(224, 188, 112, .12) 48%, transparent 76%); background-size: 220% 100%; filter: blur(16px); opacity: .72; animation: highlights-flow 9s ease-in-out infinite alternate; }
     .highlights-kicker { margin: 0 0 15px; color: var(--accent); font-size: 1.02rem; font-weight: 700; letter-spacing: .12em; }
-    .highlights-title { margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(2.75rem, 5.6vw, 4.9rem); font-weight: 500; line-height: 1.16; letter-spacing: .045em; }
+    .highlights-title { margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(3.35rem, 7.1vw, 5.9rem); font-weight: 600; line-height: 1.16; letter-spacing: .045em; color: var(--text); background: linear-gradient(112deg, #c3944d 0%, #fff9e9 42%, #e7c47b 63%, #bd8b45 100%); background-size: 220% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: highlights-title-flow 10s linear infinite; }
     .highlights-intro { max-width: 540px; margin: 24px auto 0; color: var(--muted); line-height: 2; letter-spacing: .05em; font-size: .95rem; }
     .highlights-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; width: min(430px, 100%); margin: 28px auto 0; }
     .highlights-action { min-height: 50px; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid rgba(200,169,110,.42); border-radius: 4px; color: var(--accent2); background: rgba(9,8,6,.58); text-decoration: none; font-size: .9rem; font-weight: 700; letter-spacing: .08em; transition: border-color .2s ease, background .2s ease, color .2s ease; }
@@ -61,10 +62,39 @@
     .highlights-float-line { position: fixed; z-index: 30; right: clamp(16px, 2.4vw, 36px); bottom: clamp(18px, 2.6vw, 30px); display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border: 1px solid rgba(200,169,110,.55); border-radius: 999px; background: rgba(8,8,6,.9); box-shadow: 0 8px 28px rgba(0,0,0,.4); color: var(--accent2); font-size: .88rem; font-weight: 700; text-decoration: none; }
     .highlights-float-line::before { width: 7px; height: 7px; border-radius: 50%; background: #38be85; box-shadow: 0 0 10px rgba(56,190,133,.65); content: ''; }
     @media (max-width: 900px) { .highlights-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-    @media (max-width: 700px) { .highlights-main { padding: 84px 16px 68px; } .highlights-hero { margin: 4px auto 42px; padding: 6px 8px 0; } .highlights-kicker { margin-bottom: 12px; font-size: .92rem; } .highlights-title { font-size: clamp(2.4rem, 11vw, 3.2rem); line-height: 1.2; } .highlights-intro { font-size: .9rem; margin-top: 18px; } .highlights-actions { gap: 10px; margin-top: 22px; } .highlights-action { min-height: 48px; padding: 0 12px; font-size: .84rem; } .highlights-record-warning { margin-top: 24px; padding-top: 14px; font-size: .76rem; line-height: 1.85; } .highlights-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .highlight-story::after { opacity: 1; } .story-dialog img { height: min(70dvh, 760px); } .story-dialog-actions { padding: 10px 14px 14px; } .highlights-float-line { right: 14px; bottom: 16px; min-height: 42px; padding: 0 16px; font-size: .82rem; } }
+    @keyframes highlights-flow { from { background-position: 0 50%; transform: translateX(-4%); } to { background-position: 100% 50%; transform: translateX(4%); } }
+    @keyframes highlights-title-flow { from { background-position: 0% 50%; } to { background-position: 200% 50%; } }
+    @media (prefers-reduced-motion: reduce) { .highlights-hero::before, .highlights-title { animation: none; } }
+    @media (max-width: 700px) { .highlights-main { padding: 84px 16px 68px; } .highlights-hero { margin: 4px auto 42px; padding: 16px 8px 8px; } .highlights-kicker { margin-bottom: 12px; font-size: .92rem; } .highlights-title { font-size: clamp(2.85rem, 13vw, 4.1rem); line-height: 1.18; } .highlights-intro { font-size: .9rem; margin-top: 18px; } .highlights-actions { gap: 10px; margin-top: 22px; } .highlights-action { min-height: 48px; padding: 0 12px; font-size: .84rem; } .highlights-record-warning { margin-top: 24px; padding-top: 14px; font-size: .76rem; line-height: 1.85; } .highlights-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .highlight-story::after { opacity: 1; } .story-dialog img { height: min(70dvh, 760px); } .story-dialog-actions { padding: 10px 14px 14px; } .highlights-float-line { right: 14px; bottom: 16px; min-height: 42px; padding: 0 16px; font-size: .82rem; } }
   .highlights-social-cta {
     width: min(740px, 100%);
     margin: 30px auto 0;
+  }
+
+  .highlights-hero .hero-badges {
+    margin-bottom: 22px;
+  }
+
+  .highlights-hero .hero-title {
+    margin-bottom: 22px;
+  }
+
+  .highlights-hero .hero-lead {
+    margin-bottom: 0;
+  }
+
+  .highlights-home-copy-contact {
+    margin: 92px -24px 0;
+    border-top: 1px solid rgba(200, 169, 110, 0.2);
+    background: linear-gradient(180deg, rgba(8, 8, 7, 0.08), rgba(16, 13, 9, 0.58));
+  }
+
+  .highlights-home-copy-contact .hero-stats {
+    margin-top: 0;
+  }
+
+  .highlights-home-copy-contact .line-alert-note {
+    margin-bottom: 0;
   }
 
   .highlights-home-contact {
@@ -149,6 +179,11 @@
       padding: 74px 16px 64px;
     }
 
+    .highlights-home-copy-contact {
+      margin: 64px -16px 0;
+      padding: 88px 18px 64px;
+    }
+
     .highlights-contact-sub {
       margin: 18px 0 26px;
       font-size: 0.96rem;
@@ -176,9 +211,14 @@
   <main class="highlights-main">
     <div class="highlights-wrap">
       <header class="highlights-hero fade-up">
-        <p class="highlights-kicker">精選紀錄</p>
-        <h1 class="highlights-title">那些先問清楚<br>才更能安心的事</h1>
-        <p class="highlights-intro">把常見的提問與回覆整理留在這裡<br>完整收錄 80 張精選紀錄　所有畫面皆以匿名方式呈現</p>
+        <div class="hero-badges">
+          <span class="hero-badge">匿名整理</span>
+          <span class="hero-badge">真實回饋</span>
+          <span class="hero-badge">精選紀錄</span>
+          <span class="hero-badge">有問必答</span>
+        </div>
+        <h1 class="hero-title">公關真實心得</h1>
+        <p class="hero-lead">把常見的提問與回覆整理留在這裡<br>完整收錄 80 張精選紀錄　所有畫面皆以匿名方式呈現</p>
       <div class="hero-cta cta-three highlights-social-cta" aria-label="精選紀錄聯絡方式">
         <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer">立即詢問</a>
         <a class="btn-outline official-line-outline" href="https://lin.ee/8COZQMn" target="_blank" rel="noopener noreferrer">官方 LINE</a>
@@ -193,21 +233,46 @@
     <section class="highlights-grid" aria-label="精選紀錄圖牆"></section>
     <p class="highlights-note">圖片僅保留內容重點　所有可辨識資訊均已移除</p>
   </div>
-  <section class="highlights-home-contact" aria-labelledby="highlights-contact-title">
-    <div class="highlights-contact-inner">
-      <p class="highlights-contact-kicker">有　問　必　答</p>
-      <p class="highlights-contact-sub">問問題　不代表你要來做<br>但如果你不問我<br>你永遠不會知道</p>
-      <h2 id="highlights-contact-title">八大行業<br>到底長什麼樣子</h2>
-      <p class="highlights-contact-lead">不管你問什麼　我都有問必答</p>
-      <div class="hero-cta cta-three highlights-bottom-actions" aria-label="精選紀錄聯絡方式">
-        <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer">立即詢問</a>
-        <a class="btn-outline official-line-outline" href="https://lin.ee/8COZQMn" target="_blank" rel="noopener noreferrer">官方 LINE</a>
-        <a class="btn-outline video-outline" href="https://www.tiktok.com/@angus061855?_r=1&_t=ZS-96xymY3pCVA" target="_blank" rel="noopener noreferrer">八大影片</a>
-        <a class="btn-outline instagram-outline" href="https://www.instagram.com/" data-official-instagram target="_blank" rel="noopener noreferrer">官方 IG</a>
-      </div>
-      <p class="highlights-contact-alert">因同行長期眼紅檢舉我　目前 IG 帳號會一直更換<br>想更快找到我可以直接加 LINE</p>
-      <p class="highlights-contact-reply">我會親自回覆　不是 AI 回覆</p>
+  <section class="home-copy-hero highlights-home-copy-contact" aria-label="精選紀錄聯絡區">
+    <h2 class="visually-hidden">聯絡 AS娛樂大頭｜酒店公關與美容師工作諮詢</h2>
+    <div class="hero-badges fade-up">
+      <span class="hero-badge">全台最多人詢問</span>
+      <span class="hero-badge">八大最誠實經紀</span>
+      <span class="hero-badge">七年個人面試3000+</span>
+      <span class="hero-badge">有問必答</span>
     </div>
+    <div class="hero-social-proof fade-up" style="transition-delay:0.05s">
+      <span class="hero-social-proof-dot"></span>
+      本週已有 <strong>持續增加</strong> 人詢問
+    </div>
+    <p class="hero-sub-shine fade-up" aria-hidden="true" style="transition-delay:0.1s">
+      <span>不</span><span>要</span><span>讓</span><span>未</span><span>來</span><span>的</span><span>你</span>
+      <br>
+      <span>討</span><span>厭</span><span>現</span><span>在</span><span>的</span><span>自</span><span>己</span>
+    </p>
+    <div class="hero-stats fade-up" style="transition-delay:0.3s">
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label">從業年資</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3000+</div>
+        <div class="stat-label">個人面試人數</div>
+      </div>
+    </div>
+    <div class="hero-pills fade-up" style="transition-delay:0.2s">
+      <span class="hero-pill">不簽合約</span>
+      <span class="hero-pill">不壓薪水</span>
+      <span class="hero-pill">自由排班</span>
+      <span class="hero-pill">隱私安全</span>
+    </div>
+    <div class="hero-cta cta-three fade-up" style="transition-delay:0.4s" aria-label="精選紀錄聯絡方式">
+      <a href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer" class="btn-primary">立即詢問</a>
+      <a href="https://lin.ee/8COZQMn" target="_blank" rel="noopener noreferrer" class="btn-outline official-line-outline">官方 LINE</a>
+      <a href="https://www.tiktok.com/@angus061855?_r=1&_t=ZS-96xymY3pCVA" target="_blank" rel="noopener noreferrer" class="btn-outline video-outline">八大影片</a>
+      <a href="https://www.instagram.com/" data-official-instagram target="_blank" rel="noopener noreferrer" class="btn-outline instagram-outline">官方 IG</a>
+    </div>
+    <p class="line-alert-note hero-line-alert fade-up" style="transition-delay:0.45s">因同行長期眼紅檢舉我　目前 IG 帳號會一直更換<br>想更快找到我可以直接加 LINE</p>
   </section>
 </main>
   <footer class="highlights-footer">
