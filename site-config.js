@@ -7,7 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
     link.href = window.AS_SITE_CONFIG.officialInstagram;
   });
 
-  document.querySelectorAll('a[href="/contact"], a[href="/contact/"]').forEach(function (link) {
-    link.href = '/brand';
+  var contactHref = '/contact';
+  if (window.location.protocol === 'file:') {
+    contactHref = /\/(?:brand|highlights)\//.test(window.location.pathname) ? '../contact.html' : 'contact.html';
+  }
+
+  document.querySelectorAll('a[href="/brand"], a[href="/brand/"], a[href="/contact"], a[href="/contact/"]').forEach(function (link) {
+    link.href = contactHref;
   });
 });
