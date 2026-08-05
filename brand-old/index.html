@@ -1540,7 +1540,7 @@
     }
     .brand-fit-result {
       display: none;
-      margin-top: 18px;
+      margin-top: 0;
       padding: clamp(22px, 4vw, 32px);
       border: 1px solid rgba(94,225,149,.28);
       border-radius: var(--radius-card);
@@ -1553,6 +1553,11 @@
     .brand-fit-result.active {
       display: block;
       animation: brandFitIn .24s ease both;
+    }
+    .brand-fit-quiz.is-result .brand-fit-progress,
+    .brand-fit-quiz.is-result .brand-fit-question,
+    .brand-fit-quiz.is-result .brand-fit-submit {
+      display: none;
     }
     .brand-fit-result h3 {
       margin: 0 0 10px;
@@ -2237,8 +2242,8 @@
 	          const desc = fitResult.querySelector('p');
 	          if (title) title.textContent = recommendation.title;
 	          if (desc) desc.innerHTML = recommendation.desc;
+	          fitQuiz.classList.add('is-result');
 	          fitResult.classList.add('active');
-	          fitResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
 	        }
 	        if (fitSubmit) fitSubmit.classList.remove('active');
 	        return message;
@@ -2246,6 +2251,7 @@
 
 	      fitQuiz.querySelectorAll('.brand-fit-options input').forEach(input => {
 	        input.addEventListener('change', () => {
+	          fitQuiz.classList.remove('is-result');
 	          if (fitResult) fitResult.classList.remove('active');
 	          if (input.value === '不確定') {
 	            window.setTimeout(() => renderFitResult(true), 120);
@@ -2264,6 +2270,7 @@
 	      if (fitRestart) {
 	        fitRestart.addEventListener('click', () => {
 	          fitQuiz.reset();
+	          fitQuiz.classList.remove('is-result');
 	          if (fitResult) fitResult.classList.remove('active');
 	          if (fitSubmit) fitSubmit.classList.remove('active');
 	          sessionStorage.removeItem('asBrandFitQuizDraft');
