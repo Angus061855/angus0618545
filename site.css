@@ -2201,25 +2201,24 @@ footer {
 
 .site-line-float {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: clamp(16px, 2.4vw, 36px);
+  bottom: clamp(18px, 2.6vw, 30px);
   z-index: 320;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-width: 118px;
-  height: 48px;
+  min-height: 44px;
   padding: 0 20px;
-  border: 1px solid rgba(200,169,110,.35);
+  border: 1px solid rgba(94,225,149,.58);
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(20,16,10,.96), rgba(10,8,6,.96));
-  color: var(--accent2);
+  background: linear-gradient(135deg, rgba(45,127,84,.94), rgba(7,18,12,.94));
+  color: #ddffe8;
   text-decoration: none;
-  box-shadow: 0 8px 30px rgba(0,0,0,.4), 0 0 20px rgba(200,169,110,.1);
-  font-size: .92rem;
-  font-weight: 900;
-  letter-spacing: .1em;
+  box-shadow: 0 8px 28px rgba(0,0,0,.4), 0 0 22px rgba(56,190,133,.14);
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .08em;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -2231,11 +2230,11 @@ footer {
   text-decoration:none!important;
 }
 .site-line-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #4caf7d;
-  box-shadow: 0 0 10px rgba(76,175,125,.65);
+  background: #38be85;
+  box-shadow: 0 0 10px rgba(56,190,133,.65);
   flex: 0 0 auto;
 }
 
@@ -2381,15 +2380,15 @@ footer {
   .hero-title { font-size:clamp(2.15rem, 10vw, 3.35rem); line-height:1.28; letter-spacing:.04em; }
   .section { padding:58px 0; }
   .site-line-float {
-    right:16px;
-    bottom:calc(18px + env(safe-area-inset-bottom));
-    height:44px;
-    min-width:108px;
-    padding:0 18px;
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-    transform:translateY(12px);
+    right:14px;
+    bottom:calc(16px + env(safe-area-inset-bottom));
+    min-height:42px;
+    padding:0 16px;
+    font-size:.82rem;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+    transform:none;
     transition:opacity .22s ease, transform .22s ease, visibility .22s ease;
   }
   .site-line-float.mobile-visible {
