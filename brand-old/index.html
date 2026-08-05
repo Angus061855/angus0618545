@@ -1221,7 +1221,7 @@
       min-height: min(780px, calc(100svh - 72px));
       justify-content: center;
       align-items: center;
-      padding: clamp(44px, 6vw, 74px) 24px clamp(34px, 5vw, 56px);
+      padding: clamp(58px, 7vw, 92px) 24px clamp(54px, 6vw, 76px);
       text-align: center;
       isolation: isolate;
     }
@@ -1280,7 +1280,7 @@
       letter-spacing: .14em;
     }
     .brand-ad-title {
-      margin: 20px 0 12px;
+      margin: 28px 0 20px;
       color: transparent;
       background: linear-gradient(105deg, #c8a96e 0%, #f0d898 30%, #f7f4ee 52%, #9f968b 74%, #c8a96e 100%);
       background-size: 260% auto;
@@ -1303,7 +1303,7 @@
       align-items: baseline;
       justify-content: center;
       gap: 12px;
-      margin: 0 0 16px;
+      margin: 0 0 24px;
       color: #f4e5bf;
       font-family: "Noto Serif TC", serif;
       letter-spacing: .12em;
@@ -1335,22 +1335,22 @@
     }
     .brand-ad-points {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      width: min(500px, 100%);
-      margin: 0 auto 18px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+      width: min(520px, 100%);
+      margin: 0 auto 28px;
     }
     .brand-ad-point {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      border: 1px solid rgba(200,169,110,.25);
+      min-height: 34px;
+      border: 1px solid rgba(200,169,110,.22);
       background: rgba(10,8,5,.68);
       color: #eee8dc;
-      font-size: .82rem;
+      font-size: .72rem;
       font-weight: 800;
-      letter-spacing: .1em;
+      letter-spacing: .055em;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
     }
     .brand-ad-note {
@@ -1365,8 +1365,8 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       width: min(430px, 100%);
-      margin: 0 auto 14px;
-      gap: 10px;
+      margin: 0 auto 16px;
+      gap: 12px;
     }
     .brand-ad-actions > a {
       box-sizing: border-box;
@@ -1385,8 +1385,8 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       width: min(430px, 100%);
-      margin: 14px auto 20px;
-      gap: 10px;
+      margin: 18px auto 26px;
+      gap: 12px;
     }
     .brand-resource-actions a {
       display: inline-flex;
@@ -1428,12 +1428,13 @@
       letter-spacing: .07em;
     }
     .brand-ad-slogan {
-      margin: 24px 0 0;
+      margin: 0 auto 30px;
       color: rgba(242,238,232,.72);
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(1.18rem, 2.1vw, 1.72rem);
-      line-height: 1.8;
-      letter-spacing: .16em;
+      font-size: clamp(1rem, 2vw, 1.34rem);
+      line-height: 1.65;
+      letter-spacing: .12em;
+      white-space: nowrap;
     }
     .brand-ad-visual {
       display: none;
@@ -1442,15 +1443,39 @@
       max-width: 900px;
       margin: 36px auto 0;
     }
+    .brand-fit-progress {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      margin-bottom: 18px;
+    }
+    .brand-fit-progress span {
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(200,169,110,.16);
+      transition: background .22s ease, box-shadow .22s ease;
+    }
+    .brand-fit-progress span.active,
+    .brand-fit-progress span.done {
+      background: rgba(224,192,128,.78);
+      box-shadow: 0 0 14px rgba(200,169,110,.2);
+    }
     .brand-fit-question {
+      display: none;
       padding: clamp(22px, 4vw, 32px);
       border: 1px solid rgba(200,169,110,.18);
       border-radius: var(--radius-card);
       background: linear-gradient(145deg, rgba(20,16,10,.62), rgba(6,6,6,.82));
       box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
     }
-    .brand-fit-question + .brand-fit-question {
-      margin-top: 14px;
+    .brand-fit-question.active {
+      display: block;
+      animation: brandFitIn .24s ease both;
+    }
+    @keyframes brandFitIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .brand-fit-question h3 {
       margin: 0 0 16px;
@@ -1493,9 +1518,12 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 0 22px rgba(200,169,110,.1);
     }
     .brand-fit-submit {
-      display: flex;
+      display: none;
       justify-content: center;
       margin-top: 18px;
+    }
+    .brand-fit-submit.active {
+      display: flex;
     }
     .brand-fit-submit .btn-primary {
       min-width: min(100%, 360px);
@@ -1658,19 +1686,23 @@
 
     @media (max-width: 520px) {
       .brand-hero {
+        min-height: auto;
         padding-right: 18px;
+        padding-top: 58px;
+        padding-bottom: 64px;
         padding-left: 18px;
       }
       .brand-ad-copy {
         padding-top: 0;
       }
       .brand-ad-title {
-        margin-top: 18px;
+        margin-top: 24px;
+        margin-bottom: 20px;
         line-height: 1.18;
       }
       .brand-ad-pay {
         flex-wrap: wrap;
-        margin-bottom: 14px;
+        margin-bottom: 24px;
       }
       .brand-ad-pay small,
       .brand-ad-pay em {
@@ -1678,11 +1710,14 @@
       }
       .brand-ad-actions {
         width: min(100%, 360px);
-        gap: 8px;
+        margin-bottom: 18px;
+        gap: 10px;
       }
       .brand-resource-actions {
         width: min(100%, 360px);
-        gap: 8px;
+        margin-top: 18px;
+        margin-bottom: 28px;
+        gap: 10px;
       }
       .brand-ad-actions > a {
         min-height: 46px;
@@ -1696,16 +1731,20 @@
         letter-spacing: .04em;
       }
       .brand-ad-points {
-        gap: 8px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(100%, 360px);
+        margin-bottom: 30px;
+        gap: 9px;
       }
       .brand-ad-point {
-        min-height: 40px;
-        font-size: .78rem;
-        letter-spacing: .055em;
+        min-height: 34px;
+        font-size: .72rem;
+        letter-spacing: .035em;
       }
       .brand-ad-slogan {
-        font-size: 1.2rem;
-        letter-spacing: .12em;
+        margin-bottom: 30px;
+        font-size: .95rem;
+        letter-spacing: .055em;
       }
       .brand-job-strip,
       .brand-direct-item {
@@ -1772,9 +1811,16 @@
     <section class="brand-hero" aria-labelledby="brand-title">
       <div class="brand-hero-inner">
         <div class="brand-ad-copy">
+          <p class="brand-ad-slogan">不要讓未來的你 討厭現在的自己</p>
           <span class="brand-ad-kicker">AS娛樂｜誠徵美容師</span>
           <h1 id="brand-title" class="brand-ad-title"><span>美容師工作</span><span>直接 LINE 詢問</span></h1>
           <p class="brand-ad-pay"><small>薪資平均</small><strong>30000</strong><em>元 / 天</em></p>
+          <div class="brand-ad-points" aria-label="工作特色">
+            <span class="brand-ad-point">無經驗可</span>
+            <span class="brand-ad-point">彈性兼職</span>
+            <span class="brand-ad-point">自由排班</span>
+            <span class="brand-ad-point">隱私安全</span>
+          </div>
           <div class="brand-hero-actions brand-ad-actions">
             <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer" data-brand-event="cta_meta_job_direct_line">我想詢問工作</a>
             <a class="btn-outline official-line-outline" href="/" data-brand-event="cta_meta_home">回到首頁</a>
@@ -1788,13 +1834,6 @@
             <span>直接 LINE 詢問</span>
             <span>不強迫決定</span>
           </div>
-          <div class="brand-ad-points" aria-label="工作特色">
-            <span class="brand-ad-point">無經驗可</span>
-            <span class="brand-ad-point">彈性兼職</span>
-            <span class="brand-ad-point">自由排班</span>
-            <span class="brand-ad-point">隱私安全</span>
-          </div>
-          <p class="brand-ad-slogan">不要讓未來的你<br>討厭現在的自己</p>
           <a class="brand-home-scroll" href="#jobs" aria-label="前往工作條件">
             <span>往下看工作條件</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 4v12M4 10l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1939,26 +1978,27 @@
         <span class="section-label">適合測驗</span>
         <h2 id="brand-fit-title" class="section-title">三題看適合方向<br>送出直接加 LINE</h2>
         <form class="brand-fit-quiz" id="brand-fit-quiz">
-          <fieldset class="brand-fit-question">
+          <div class="brand-fit-progress" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+          <fieldset class="brand-fit-question active" data-fit-step="0">
             <h3>你想上班的時段？</h3>
             <div class="brand-fit-options">
-              <label><input type="radio" name="workTime" value="12-18" checked><span class="brand-fit-option">12-18</span></label>
+              <label><input type="radio" name="workTime" value="12-18"><span class="brand-fit-option">12-18</span></label>
               <label><input type="radio" name="workTime" value="19-03"><span class="brand-fit-option">19-03</span></label>
               <label><input type="radio" name="workTime" value="不確定"><span class="brand-fit-option">不確定</span></label>
             </div>
           </fieldset>
-          <fieldset class="brand-fit-question">
+          <fieldset class="brand-fit-question" data-fit-step="1">
             <h3>能不能喝酒？</h3>
             <div class="brand-fit-options">
-              <label><input type="radio" name="drink" value="可以" checked><span class="brand-fit-option">可以</span></label>
+              <label><input type="radio" name="drink" value="可以"><span class="brand-fit-option">可以</span></label>
               <label><input type="radio" name="drink" value="不可以"><span class="brand-fit-option">不可以</span></label>
               <label><input type="radio" name="drink" value="不確定"><span class="brand-fit-option">不確定</span></label>
             </div>
           </fieldset>
-          <fieldset class="brand-fit-question">
+          <fieldset class="brand-fit-question" data-fit-step="2">
             <h3>一個禮拜想賺多少錢？</h3>
             <div class="brand-fit-options">
-              <label><input type="radio" name="weeklyIncome" value="1萬" checked><span class="brand-fit-option">1萬</span></label>
+              <label><input type="radio" name="weeklyIncome" value="1萬"><span class="brand-fit-option">1萬</span></label>
               <label><input type="radio" name="weeklyIncome" value="3萬"><span class="brand-fit-option">3萬</span></label>
               <label><input type="radio" name="weeklyIncome" value="更多"><span class="brand-fit-option">更多</span></label>
             </div>
@@ -2054,9 +2094,43 @@
 
 	      const fitQuiz = document.getElementById('brand-fit-quiz');
 	      if (!fitQuiz) return;
+	      const fitQuestions = Array.from(fitQuiz.querySelectorAll('.brand-fit-question'));
+	      const fitProgress = Array.from(fitQuiz.querySelectorAll('.brand-fit-progress span'));
+	      const fitSubmit = fitQuiz.querySelector('.brand-fit-submit');
+	      let activeFitStep = 0;
+
+	      function showFitStep(step) {
+	        activeFitStep = Math.min(step, fitQuestions.length - 1);
+	        fitQuestions.forEach((question, index) => {
+	          question.classList.toggle('active', index === activeFitStep);
+	        });
+	        fitProgress.forEach((dot, index) => {
+	          dot.classList.toggle('active', index === activeFitStep);
+	          dot.classList.toggle('done', index < activeFitStep);
+	        });
+	        if (fitSubmit) fitSubmit.classList.toggle('active', activeFitStep === fitQuestions.length - 1 && Boolean(fitQuestions[activeFitStep].querySelector('input:checked')));
+	      }
+
+	      fitQuiz.querySelectorAll('.brand-fit-options input').forEach(input => {
+	        input.addEventListener('change', () => {
+	          const currentQuestion = input.closest('.brand-fit-question');
+	          const currentStep = fitQuestions.indexOf(currentQuestion);
+	          if (currentStep < fitQuestions.length - 1) {
+	            window.setTimeout(() => showFitStep(currentStep + 1), 160);
+	            return;
+	          }
+	          if (fitSubmit) fitSubmit.classList.add('active');
+	        });
+	      });
+
+	      showFitStep(0);
 	      fitQuiz.addEventListener('submit', event => {
 	        event.preventDefault();
 	        const formData = new FormData(fitQuiz);
+	        if (!formData.get('workTime') || !formData.get('drink') || !formData.get('weeklyIncome')) {
+	          showFitStep(fitQuestions.findIndex(question => !question.querySelector('input:checked')));
+	          return;
+	        }
 	        const message = [
 	          '你好，我想詢問美容師工作',
 	          `想上班時段：${formData.get('workTime') || '不確定'}`,
