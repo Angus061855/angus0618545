@@ -503,8 +503,9 @@
       place-items: center;
       padding: 24px;
     }
-    .brand-float-line { position: fixed; z-index: 30; right: clamp(16px, 2.4vw, 36px); bottom: clamp(18px, 2.6vw, 30px); display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border: 1px solid rgba(200,169,110,.55); border-radius: 999px; background: rgba(8,8,6,.9); box-shadow: 0 8px 28px rgba(0,0,0,.4); color: var(--accent2); font-size: .88rem; font-weight: 700; text-decoration: none; }
-    .brand-float-line::before { width: 7px; height: 7px; border-radius: 50%; background: #38be85; box-shadow: 0 0 10px rgba(56,190,133,.65); content: ''; }
+    .brand-float-line { position: fixed; z-index: 30; right: clamp(16px, 2.4vw, 36px); bottom: clamp(18px, 2.6vw, 30px); display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 28px; border: 2px solid rgba(94,225,149,.66); border-radius: 999px; background: linear-gradient(135deg, rgba(45,127,84,.94), rgba(7,18,12,.94)); box-shadow: 0 12px 34px rgba(0,0,0,.46), 0 0 28px rgba(56,190,133,.18), inset 0 1px 0 rgba(255,255,255,.08); color: #ddffe8; font-size: 1.05rem; font-weight: 900; letter-spacing: .06em; text-decoration: none; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+    .brand-float-line::before { width: 9px; height: 9px; border-radius: 50%; background: #38be85; box-shadow: 0 0 10px rgba(56,190,133,.65); content: ''; }
+    .brand-float-line:hover, .brand-float-line:focus-visible { border-color: rgba(119,242,171,.82); box-shadow: 0 14px 38px rgba(0,0,0,.5), 0 0 34px rgba(56,190,133,.24), inset 0 1px 0 rgba(255,255,255,.1); color: #effff5; transform: translateY(-2px); outline: none; }
     .brand-contact-backdrop {
       position: absolute;
       inset: 0;
@@ -997,7 +998,7 @@
         letter-spacing: .06em;
         white-space: nowrap;
       }
-      .brand-float-line { right: 14px; bottom: 16px; min-height: 42px; padding: 0 16px; font-size: .82rem; }
+      .brand-float-line { right: 14px; bottom: 16px; min-height: 52px; padding: 0 24px; font-size: 1rem; }
       .brand-hero-trust {
         max-width: 320px;
         margin-bottom: 13px;
@@ -1088,8 +1089,46 @@
         min-width: 0;
         min-height: 48px;
         padding: 12px 10px;
-        font-size: .76rem;
+      font-size: .76rem;
+    }
+
+    /* Keep the four contact routes easy to scan and tap on the contact page. */
+    .brand-hero-actions.hero-cta.cta-three {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: min(100%, 1040px);
+      margin: 18px auto 0;
+      gap: 10px;
+    }
+
+    .brand-hero-actions.hero-cta.cta-three > a {
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-width: 0;
+      min-height: 52px;
+      padding: 12px 10px;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1.15;
+    }
+
+    @media (max-width: 700px) {
+      .brand-hero-actions.hero-cta.cta-three {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: min(100%, 360px);
+        margin: 18px auto 0;
+        gap: 10px;
       }
+
+      .brand-hero-actions.hero-cta.cta-three > a {
+        min-height: 52px;
+        padding: 12px 8px;
+        font-size: .84rem;
+      }
+    }
       .brand-hero-actions {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -2207,21 +2207,22 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 0 20px;
-  border: 1px solid rgba(94,225,149,.58);
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 28px;
+  border: 2px solid rgba(94,225,149,.66);
   border-radius: 999px;
   background: linear-gradient(135deg, rgba(45,127,84,.94), rgba(7,18,12,.94));
   color: #ddffe8;
   text-decoration: none;
-  box-shadow: 0 8px 28px rgba(0,0,0,.4), 0 0 22px rgba(56,190,133,.14);
-  font-size: .88rem;
-  font-weight: 700;
-  letter-spacing: .08em;
+  box-shadow: 0 12px 34px rgba(0,0,0,.46), 0 0 28px rgba(56,190,133,.18), inset 0 1px 0 rgba(255,255,255,.08);
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: .06em;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 .site-line-float,
 .site-line-float:hover,
@@ -2230,12 +2231,20 @@ footer {
   text-decoration:none!important;
 }
 .site-line-dot {
-  width: 7px;
-  height: 7px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: #38be85;
   box-shadow: 0 0 10px rgba(56,190,133,.65);
   flex: 0 0 auto;
+}
+.site-line-float:hover,
+.site-line-float:focus-visible {
+  border-color: rgba(119,242,171,.82);
+  box-shadow: 0 14px 38px rgba(0,0,0,.5), 0 0 34px rgba(56,190,133,.24), inset 0 1px 0 rgba(255,255,255,.1);
+  color: #effff5;
+  transform: translateY(-2px);
+  outline: none;
 }
 
 .consult-widget {
@@ -2382,9 +2391,9 @@ footer {
   .site-line-float {
     right:14px;
     bottom:calc(16px + env(safe-area-inset-bottom));
-    min-height:42px;
-    padding:0 16px;
-    font-size:.82rem;
+    min-height:52px;
+    padding:0 24px;
+    font-size:1rem;
     opacity:1;
     visibility:visible;
     pointer-events:auto;
