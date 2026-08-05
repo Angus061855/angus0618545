@@ -1299,6 +1299,14 @@
     .brand-ad-title span {
       display: block;
     }
+    .brand-ad-title-vertical {
+      width: max-content;
+      margin: 22px auto 0;
+      font-size: .58em;
+      line-height: 1.12;
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
     .brand-ad-pay {
       display: flex;
       align-items: baseline;
@@ -1564,6 +1572,20 @@
       min-width: min(100%, 340px);
       justify-content: center;
     }
+    .brand-fit-result-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .brand-fit-restart {
+      justify-content: center;
+      min-width: 0;
+      border-color: rgba(200,169,110,.32);
+      background: rgba(10,8,5,.72);
+      color: #ead7a7;
+    }
     .brand-about-grid {
       margin-top: 38px;
     }
@@ -1695,6 +1717,11 @@
         font-size: clamp(2.05rem, 8.8vw, 3.35rem);
         letter-spacing: .045em;
       }
+      .brand-ad-title-vertical {
+        margin-top: 18px;
+        font-size: clamp(1.28rem, 5.2vw, 2rem);
+        letter-spacing: .025em;
+      }
       .brand-ad-pay {
         gap: 8px;
       }
@@ -1797,6 +1824,9 @@
       .brand-fit-options {
         grid-template-columns: 1fr;
       }
+      .brand-fit-result-actions {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
   <script type="application/ld+json">
@@ -1848,7 +1878,7 @@
         <div class="brand-ad-copy">
           <p class="brand-ad-slogan">不要讓未來的你 討厭現在的自己</p>
           <span class="brand-ad-kicker">AS娛樂｜工作諮詢</span>
-          <h1 id="brand-title" class="brand-ad-title"><span>想增加收入嗎？</span><span>先了解哪個工作適合妳</span></h1>
+          <h1 id="brand-title" class="brand-ad-title"><span>想增加收入嗎？</span><span class="brand-ad-title-vertical">先了解哪個工作適合妳</span></h1>
           <p class="brand-ad-pay"><small>薪資平均</small><strong>30000</strong><em>元 / 天</em></p>
           <div class="brand-ad-points" aria-label="工作特色">
             <span class="brand-ad-point">無經驗可</span>
@@ -2017,8 +2047,8 @@
           <fieldset class="brand-fit-question active" data-fit-step="0">
             <h3>你想上班的時段？</h3>
             <div class="brand-fit-options">
-              <label><input type="radio" name="workTime" value="12-18"><span class="brand-fit-option">12-18</span></label>
-              <label><input type="radio" name="workTime" value="19-03"><span class="brand-fit-option">19-03</span></label>
+              <label><input type="radio" name="workTime" value="中午12:00 - 晚上18:00"><span class="brand-fit-option">中午12:00 - 晚上18:00</span></label>
+              <label><input type="radio" name="workTime" value="晚上19:00 - 半夜03:00"><span class="brand-fit-option">晚上19:00 - 半夜03:00</span></label>
               <label><input type="radio" name="workTime" value="不確定"><span class="brand-fit-option">不確定</span></label>
             </div>
           </fieldset>
@@ -2043,8 +2073,11 @@
           </div>
           <div class="brand-fit-result" id="brand-fit-result" aria-live="polite">
             <h3>直接來問我</h3>
-            <p>你現在的狀況我需要多問幾句<br>直接加 LINE，我幫你判斷比較快。</p>
-            <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer" data-brand-event="cta_fit_result_line">帶著結果加 LINE 詢問</a>
+            <p>如果你不確定目前情況<br>直接加 LINE 詢問，我來幫你判斷比較快。</p>
+            <div class="brand-fit-result-actions">
+              <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer" data-brand-event="cta_fit_result_line">帶著結果加 LINE 詢問</a>
+              <button class="btn-outline brand-fit-restart" type="button">重新詢問</button>
+            </div>
           </div>
         </form>
       </div>
@@ -2138,6 +2171,7 @@
 	      const fitProgress = Array.from(fitQuiz.querySelectorAll('.brand-fit-progress span'));
 	      const fitSubmit = fitQuiz.querySelector('.brand-fit-submit');
 	      const fitResult = document.getElementById('brand-fit-result');
+	      const fitRestart = fitQuiz.querySelector('.brand-fit-restart');
 	      let activeFitStep = 0;
 
 	      function showFitStep(step) {
@@ -2159,22 +2193,22 @@
 	        if (workTime === '不確定' || drink === '不確定' || weeklyIncome === '不確定') {
 	          return {
 	            type: '直接詢問',
-	            title: '不確定沒關係 直接來問我',
-	            desc: '如果時間、喝酒或收入目標還不確定，我需要多問幾句才準。直接加 LINE，我幫你判斷比較快。'
+	            title: '不確定沒關係 直接加 LINE 問我',
+	            desc: '如果你不確定目前情況<br>直接加 LINE 詢問，我來幫你判斷比較快。'
 	          };
 	        }
-	        if (drink === '不可以' || workTime === '12-18') {
+	        if (drink === '不可以' || workTime === '中午12:00 - 晚上18:00') {
 	          return {
 	            type: '美容師',
 	            title: '你比較適合先了解美容師',
-	            desc: '12-18 或不能喝酒，美容師會比較符合你的條件。可以先問清楚內容、班別和薪資再決定。'
+	            desc: '中午12:00 - 晚上18:00 或不能喝酒，美容師會比較符合你的條件。可以先問清楚內容、班別和薪資再決定。'
 	          };
 	        }
-	        if (workTime === '19-03' && drink === '可以') {
+	        if (workTime === '晚上19:00 - 半夜03:00' && drink === '可以') {
 	          return {
 	            type: '酒店公關 / 美容師',
 	            title: '酒店公關、美容師都可以先了解',
-	            desc: '19-03 又可以喝酒，兩種方向都能評估。差別在工作型態和收入算法，直接問我會比較快。'
+	            desc: '晚上19:00 - 半夜03:00 又可以喝酒，兩種方向都能評估。差別在工作型態和收入算法，直接問我會比較快。'
 	          };
 	        }
 	        return {
@@ -2226,6 +2260,17 @@
 	          window.setTimeout(() => renderFitResult(false), 120);
 	        });
 	      });
+
+	      if (fitRestart) {
+	        fitRestart.addEventListener('click', () => {
+	          fitQuiz.reset();
+	          if (fitResult) fitResult.classList.remove('active');
+	          if (fitSubmit) fitSubmit.classList.remove('active');
+	          sessionStorage.removeItem('asBrandFitQuizDraft');
+	          showFitStep(0);
+	          fitQuestions[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+	        });
+	      }
 
 	      showFitStep(0);
 	      fitQuiz.addEventListener('submit', event => {
