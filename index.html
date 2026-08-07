@@ -942,32 +942,41 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-width: 118px;
-      height: 48px;
-      padding: 0 20px;
-      border: 1px solid rgba(200,169,110,0.35);
+      gap: 10px;
+      min-width: 0;
+      min-height: 56px;
+      padding: 0 28px;
+      border: 2px solid rgba(94,225,149,0.66);
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(20,16,10,0.96), rgba(10,8,6,0.96));
-      color: var(--accent2);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 20px rgba(200,169,110,0.1);
+      background: linear-gradient(135deg, rgba(45,127,84,0.94), rgba(7,18,12,0.94));
+      color: #ddffe8;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.46), 0 0 28px rgba(56,190,133,0.18), inset 0 1px 0 rgba(255,255,255,0.08);
       cursor: pointer;
-      font-size: 0.92rem;
+      font-size: 1.05rem;
       font-weight: 900;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.06em;
       font-family: 'Noto Sans TC', sans-serif;
       text-decoration: none;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .consult-toggle,
     .consult-toggle:hover,
     .consult-toggle:focus,
     .consult-toggle span { text-decoration: none !important; }
+    .consult-toggle:hover,
+    .consult-toggle:focus-visible {
+      border-color: rgba(119,242,171,0.82);
+      box-shadow: 0 14px 38px rgba(0,0,0,0.5), 0 0 34px rgba(56,190,133,0.24), inset 0 1px 0 rgba(255,255,255,0.1);
+      color: #effff5;
+      transform: translateY(-2px);
+      outline: none;
+    }
     .consult-toggle-dot {
-      width: 8px;
-      height: 8px;
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: #4caf7d;
-      box-shadow: 0 0 10px rgba(76,175,125,0.65);
+      background: #38be85;
+      box-shadow: 0 0 10px rgba(56,190,133,0.65);
     }
     .consult-panel .quiz-progress { margin-bottom: 16px; }
     .consult-panel .quiz-q {
@@ -1035,7 +1044,7 @@
         padding: 14px;
       }
       .consult-actions { grid-template-columns: 1fr; }
-      .consult-toggle { height: 44px; min-width: 108px; padding: 0 18px; }
+      .consult-toggle { min-height: 52px; padding: 0 24px; font-size: 1rem; }
       .footer-age { width:100%; padding:0; border:0; }
     }
 
