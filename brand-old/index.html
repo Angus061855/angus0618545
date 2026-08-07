@@ -2162,9 +2162,20 @@
       if (heroInterviewCount) animateCounter(heroInterviewCount, interviewTotal, 1800, '+');
       if (trustInterviewCount) animateCounter(trustInterviewCount, interviewTotal, 1800, '+');
 
-      function trackBrandEvent(eventName) {
-        if (typeof window.fbq === 'function') window.fbq('trackCustom', eventName);
+      const brandOldPixelParams = {
+        page_path: '/brand-old/',
+        landing_page: 'brand_old',
+        test_event_code: 'TEST69881'
+      };
+
+      function trackBrandEvent(eventName, params = {}) {
+        if (typeof window.fbq === 'function') {
+          window.fbq('trackCustom', eventName, Object.assign({}, brandOldPixelParams, params));
+        }
       }
+
+      trackBrandEvent('BrandOldLandingView');
+      trackBrandEvent('TEST69881', { event_role: 'meta_test_event' });
 
 	      document.querySelectorAll('[data-brand-event]').forEach((trigger) => {
 	        trigger.addEventListener('click', () => trackBrandEvent(trigger.dataset.brandEvent));
