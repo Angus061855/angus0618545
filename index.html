@@ -394,6 +394,11 @@
     .about-kicker { margin: 0 0 18px; color: var(--accent); font-size: .78rem; font-weight: 700; letter-spacing: .28em; }
     .about-title { margin: 0; color: var(--text); font-family: 'Noto Serif TC', serif; font-size: clamp(2.1rem, 4.6vw, 3.7rem); font-weight: 600; line-height: 1.25; letter-spacing: .06em; }
     .about-title span { color: var(--accent); font-size: .5em; letter-spacing: .2em; vertical-align: middle; }
+    .about-title-main { display: block; }
+    @media (min-width: 1101px) {
+      .about-title-mobile-break { display: none; }
+      .about-title-main { display: inline-block; white-space: nowrap; font-size: clamp(1.7rem, 3.6vw, 3rem); }
+    }
     .about-quote { max-width: 510px; margin: 28px 0 26px; padding-left: 20px; border-left: 2px solid rgba(200,169,110,.66); color: var(--accent2); font-family: 'Noto Serif TC', serif; font-size: clamp(1.15rem, 2.2vw, 1.55rem); line-height: 1.9; letter-spacing: .08em; }
     .about-story { max-width: 540px; margin: 0; color: var(--muted); font-size: .95rem; line-height: 2.1; letter-spacing: .05em; }
     .about-story strong { color: var(--text); font-weight: 700; }
@@ -407,7 +412,7 @@
     .about-cta:hover::after { transform: translateX(4px); }
     .about-principles { display: flex; flex-direction: column; justify-content: center; min-height: 100%; padding: clamp(28px, 4vw, 46px) clamp(24px, 4vw, 42px); border: 1px solid rgba(200,169,110,.3); border-radius: var(--radius-card); background: linear-gradient(145deg, rgba(24,19,13,.8), rgba(10,9,7,.58)); box-shadow: inset 0 1px 0 rgba(255,255,255,.035), 0 18px 50px rgba(0,0,0,.14); }
     .about-principles-label { margin: 0 0 10px; color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .2em; }
-    .about-principles-title { margin: 0 0 28px; color: var(--text); font-family: 'Noto Serif TC', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.45; letter-spacing: .08em; }
+    .about-principles-title { margin: 0 0 28px; color: var(--text); font-family: 'Noto Serif TC', serif; font-size: clamp(.8rem, 2.2vw, 1.65rem); line-height: 1.45; letter-spacing: .05em; white-space: nowrap; }
     .about-principle { display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 17px 0; border-top: 1px solid rgba(200,169,110,.15); }
     .about-principle-mark { color: var(--accent); font-size: .8rem; line-height: 1.75; }
     .about-principle strong { display: block; color: var(--accent2); font-size: .96rem; line-height: 1.7; letter-spacing: .06em; }
@@ -1245,18 +1250,17 @@
       <div class="about-grid">
         <div class="about-text fade-up">
           <p class="about-kicker">關於我</p>
-          <h2 class="about-title">大頭 <span>/</span><br>八大最誠實經紀人</h2>
+          <h2 class="about-title">大頭 <span>/</span><br class="about-title-mobile-break"><span class="about-title-main">八大最誠實經紀人</span></h2>
           <p class="about-quote">「我只做一件事，<br>把真實的情況先告訴你。」</p>
           <p class="about-story">入行第一年，我看到太多女孩被話術騙進去<br>薪水被壓、合約被綁，甚至被騙上床。<br>我覺得 <strong>這樣不對</strong><br>所以我選擇把工作內容、薪資和可能遇到的問題先說清楚，讓你了解後再自己決定。</p>
           <div class="about-stats">
             <div class="about-stat"><strong>7 年</strong><span>八大行業經驗</span></div>
             <div class="about-stat"><strong>3000+</strong><span>個人面試人數</span></div>
           </div>
-          <a class="about-cta" href="/about">看完整關於我</a>
         </div>
         <div class="about-principles fade-up" style="transition-delay:.12s">
           <p class="about-principles-label">MY PRINCIPLES</p>
-          <h3 class="about-principles-title">你不需要先相信我，<br>先把事情問清楚就好。</h3>
+          <h3 class="about-principles-title">你不需要先相信我，先把事情問清楚就好。</h3>
           <div class="about-principle"><span class="about-principle-mark">01</span><div><strong>不靠合約留住你</strong><span>不簽約、不用違約金綁住選擇。</span></div></div>
           <div class="about-principle"><span class="about-principle-mark">02</span><div><strong>不把重要資訊藏起來</strong><span>薪資、排班、工作內容先完整說明。</span></div></div>
           <div class="about-principle"><span class="about-principle-mark">03</span><div><strong>問了不代表你要來做</strong><span>你可以先了解，再決定適不適合。</span></div></div>
