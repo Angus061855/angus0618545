@@ -27,7 +27,8 @@
   <link rel="alternate" hreflang="x-default" href="https://as-ent-tw.com/"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet"/></noscript>
 
   <!-- 14. Google Analytics — 換成你的 G-XXXXXXXX -->
   <!-- Google Analytics -->
@@ -1243,14 +1244,15 @@
       border:1px solid rgba(200,169,110,.42)!important;
     }
   </style>
-  <link rel="stylesheet" href="/social-cta.css?v=20260718-cta2" />
+<link rel="preload" as="style" href="/social-cta.css?v=20260718-cta2" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="/social-cta.css?v=20260718-cta2" /></noscript>
 <!-- Meta Pixel Code -->
-<script src="/meta-pixel.js?v=20260718-pixel1"></script>
+<script defer src="/meta-pixel.js?v=20260718-pixel1"></script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1576529224516912&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-  <script src="/site-config.js?v=20260719-contactbrand1"></script>
+  <script defer src="/site-config.js?v=20260719-contactbrand1"></script>
 </head>
 <body>
 
@@ -1726,7 +1728,10 @@
       `).join('');
     }
   }
-  loadBlog();
+  const scheduleBlogLoad = window.requestIdleCallback
+    ? callback => window.requestIdleCallback(callback, { timeout: 2200 })
+    : callback => window.setTimeout(callback, 1200);
+  window.addEventListener('load', () => scheduleBlogLoad(loadBlog), { once: true });
 
   /* ── FAQ ── */
   function toggleFaq(btn) {
