@@ -410,16 +410,10 @@
     .about-principle-mark { color: var(--accent); font-size: .8rem; line-height: 1.75; }
     .about-principle strong { display: block; color: var(--accent2); font-size: .96rem; line-height: 1.7; letter-spacing: .06em; }
     .about-principle span { display: block; margin-top: 3px; color: var(--muted); font-size: .78rem; line-height: 1.8; letter-spacing: .03em; }
-    .about-landing { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 48px; max-width: 880px; margin: 0 auto; padding: clamp(28px, 5vw, 54px) clamp(24px, 5vw, 58px); border: 1px solid rgba(200,169,110,.28); border-radius: var(--radius-card); background: linear-gradient(135deg, rgba(22,17,11,.78), rgba(9,9,8,.5)); }
-    .about-landing-copy { max-width: 580px; }
-    .about-landing-title { margin: 0 0 16px; color: var(--text); font-family: 'Noto Serif TC', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.35; letter-spacing: .08em; }
-    .about-landing-desc { margin: 0; color: var(--muted); font-size: .94rem; line-height: 2; letter-spacing: .05em; }
-    .about-landing-points { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 24px; color: var(--accent2); font-size: .78rem; letter-spacing: .08em; }
-    .about-landing-points span::before { content: '◆'; margin-right: 7px; color: var(--accent); font-size: .45rem; vertical-align: middle; }
-    .about-landing-link { display: inline-flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 22px; border: 1px solid rgba(200,169,110,.58); color: var(--accent2); background: rgba(200,169,110,.08); text-decoration: none; font-size: .88rem; font-weight: 700; letter-spacing: .1em; white-space: nowrap; transition: color .2s ease, border-color .2s ease, background .2s ease; }
-    .about-landing-link::after { content: '→'; font-size: 1.15rem; transition: transform .2s ease; }
-    .about-landing-link:hover { color: #fff1c8; border-color: var(--accent); background: rgba(200,169,110,.14); }
-    .about-landing-link:hover::after { transform: translateX(4px); }
+    .about-principles-link { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; margin-top: 26px; padding: 13px 18px; border: 1px solid rgba(200,169,110,.5); color: var(--accent2); background: rgba(200,169,110,.06); font-size: .84rem; font-weight: 700; letter-spacing: .1em; text-decoration: none; transition: color .2s ease, border-color .2s ease, background .2s ease; }
+    .about-principles-link::after { content: '→'; font-size: 1.1rem; transition: transform .2s ease; }
+    .about-principles-link:hover { color: #fff1c8; border-color: var(--accent); background: rgba(200,169,110,.13); }
+    .about-principles-link:hover::after { transform: translateX(4px); }
 
     /* 6. 時間軸 */
     .timeline { position: relative; max-width: 600px; margin: 40px auto 0; }
@@ -542,20 +536,22 @@
     @media (max-width: 480px) { .reviews-grid { grid-template-columns: 1fr; } }
 
     /* 精選紀錄預覽 */
-    .highlights-preview { margin-top: 40px; }
-    .highlights-preview-head { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; margin-bottom: 24px; text-align: center; }
-    .highlights-preview-kicker { color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; margin-bottom: 8px; }
-    .highlights-preview-title { margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; color: var(--text); }
-    .highlights-preview-link { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 20px; color: var(--accent2); font-size: 0.86rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; white-space: nowrap; background: rgba(18,14,9,0.7); border: 1px solid rgba(200,169,110,0.42); border-radius: var(--radius-card); transition: color 0.2s, border-color 0.2s, background 0.2s; }
+    .highlights-preview { margin-top: 52px; text-align: center; }
+    .highlights-preview-head { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; margin-bottom: 26px; text-align: center; }
+    .highlights-preview-kicker { color: var(--accent); font-size: 1.35rem; font-weight: 700; letter-spacing: 0.07em; margin: 0 0 10px; }
+    .highlights-preview-title { margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.18; color: var(--text); }
+    .highlights-preview-link { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; margin-top: 22px; padding: 0 20px; color: var(--accent2); font-size: 0.86rem; font-weight: 700; letter-spacing: 0.08em; text-decoration: none; white-space: nowrap; background: rgba(18,14,9,0.7); border: 1px solid rgba(200,169,110,0.42); border-radius: var(--radius-card); transition: color 0.2s, border-color 0.2s, background 0.2s; }
     .highlights-preview-link:hover { color: #f2d695; border-color: rgba(200,169,110,0.82); background: rgba(200,169,110,0.08); }
     .highlights-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .highlights-preview-card { display: block; aspect-ratio: 9 / 16; overflow: hidden; border: 1px solid rgba(200,169,110,0.22); border-radius: var(--radius-card); background: #0b0907; }
     .highlights-preview-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
     .highlights-preview-card:hover img { transform: scale(1.035); }
     @media (max-width: 600px) {
-      .highlights-preview { margin-top: 34px; }
-      .highlights-preview-head { align-items: center; gap: 14px; margin-bottom: 20px; }
-      .highlights-preview-link { min-height: 44px; padding: 0 18px; }
+      .highlights-preview { margin-top: 44px; }
+      .highlights-preview-head { align-items: center; gap: 12px; margin-bottom: 22px; }
+      .highlights-preview-kicker { font-size: 1.2rem; margin-bottom: 8px; }
+      .highlights-preview-title { font-size: clamp(1.9rem, 9vw, 2.55rem); }
+      .highlights-preview-link { min-height: 44px; margin-top: 18px; padding: 0 18px; }
       .highlights-preview-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     }
 
@@ -1119,8 +1115,6 @@
         padding:120px 18px 26px;
       }
       .about-grid { grid-template-columns: 1fr; }
-      .about-landing { grid-template-columns: 1fr; gap: 26px; padding: 28px 22px; }
-      .about-landing-link { justify-self: start; }
       .hero-stats { gap: 10px; width: 100%; max-width: 340px; }
       .stat-num { font-size: 2rem; white-space: nowrap; }
       .stat { padding: 13px 10px; flex: 1 1 0; min-width: 0; max-width: none; }
@@ -1353,14 +1347,26 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
-      <div class="about-landing fade-up">
-        <div class="about-landing-copy">
+      <div class="about-grid">
+        <div class="about-text fade-up">
           <p class="about-kicker">關於我</p>
-          <h2 class="about-landing-title">想知道我怎麼做事？</h2>
-          <p class="about-landing-desc">完整的經歷、原則和我與其他經紀人的不同，我都整理在關於我頁面。先看清楚，再決定要不要問我。</p>
-          <div class="about-landing-points"><span>七年經驗</span><span>3000+ 位面試</span><span>本人親自回覆</span></div>
+          <h2 class="about-title">大頭 <span>/</span><br>八大最誠實經紀人</h2>
+          <p class="about-quote">「我只做一件事，<br>把真實的情況先告訴你。」</p>
+          <p class="about-story">入行第一年，我看到太多女孩被話術騙進去，薪水被壓、合約被綁，甚至被騙上床。我覺得 <strong>這樣不對</strong>，所以我選擇把工作內容、薪資和可能遇到的問題先說清楚，讓你了解後再自己決定。</p>
+          <div class="about-stats">
+            <div class="about-stat"><strong>7 年</strong><span>八大行業經驗</span></div>
+            <div class="about-stat"><strong>3000+</strong><span>個人面試人數</span></div>
+          </div>
+          <a class="about-cta" href="/about">看完整關於我</a>
         </div>
-        <a class="about-landing-link" href="/about">查看完整關於我</a>
+        <div class="about-principles fade-up" style="transition-delay:.12s">
+          <p class="about-principles-label">MY PRINCIPLES</p>
+          <h3 class="about-principles-title">你不需要先相信我，<br>先把事情問清楚就好。</h3>
+          <div class="about-principle"><span class="about-principle-mark">01</span><div><strong>不靠合約留住你</strong><span>不簽約、不用違約金綁住選擇。</span></div></div>
+          <div class="about-principle"><span class="about-principle-mark">02</span><div><strong>不把重要資訊藏起來</strong><span>薪資、排班、工作內容先完整說明。</span></div></div>
+          <div class="about-principle"><span class="about-principle-mark">03</span><div><strong>問了不代表你要來做</strong><span>你可以先了解，再決定適不適合。</span></div></div>
+          <a class="about-principles-link" href="/about">看完整關於我</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1443,15 +1449,15 @@
         <div class="highlights-preview-head">
           <div>
             <p class="highlights-preview-kicker">精選紀錄</p>
-            <h3 class="highlights-preview-title">那些先問清楚<br>才更能安心的事</h3>
+            <h3 class="highlights-preview-title">公關真實心得</h3>
           </div>
-          <a class="highlights-preview-link" href="/highlights/">查看真實心得</a>
         </div>
         <div class="highlights-preview-grid">
           <a class="highlights-preview-card" href="/highlights/" aria-label="查看精選紀錄第 1 張"><img src="assets/highlights/story-01.jpg" alt="AS 精選紀錄" width="1080" height="1920" loading="lazy"></a>
           <a class="highlights-preview-card" href="/highlights/" aria-label="查看精選紀錄第 2 張"><img src="assets/highlights/story-02.jpg" alt="AS 精選紀錄" width="1080" height="1920" loading="lazy"></a>
           <a class="highlights-preview-card" href="/highlights/" aria-label="查看精選紀錄第 3 張"><img src="assets/highlights/story-03.jpg" alt="AS 精選紀錄" width="1080" height="1920" loading="lazy"></a>
         </div>
+        <a class="highlights-preview-link" href="/highlights/">觀看更多</a>
       </div>
 
     </div>
