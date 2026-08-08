@@ -521,22 +521,6 @@
 @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
 
 
-    /* 4. 匿名心得 */
-    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .review-card {
-      background: linear-gradient(160deg, rgba(16,13,8,0.92), rgba(10,8,6,0.88));
-      border: 1px solid var(--gold-border); border-radius: var(--radius-card);
-      padding: 22px 20px; position: relative; overflow: hidden;
-    }
-    .review-card::before { content: ''; }
-    .review-text { font-size: 0.88rem; color: #c0b8a8; line-height: 2; letter-spacing: 0.04em; margin-bottom: 16px; position: relative; z-index: 1; }
-    .review-meta { display: flex; align-items: center; gap: 10px; }
-    .review-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, rgba(200,169,110,0.2), rgba(200,169,110,0.05)); border: 1px solid rgba(200,169,110,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--accent); font-weight: 700; flex-shrink: 0; }
-    .review-name { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.08em; }
-    .review-stars { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.05em; }
-    @media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } }
-    @media (max-width: 480px) { .reviews-grid { grid-template-columns: 1fr; } }
-
     /* 精選紀錄預覽 */
     .highlights-preview { margin-top: 52px; text-align: center; }
     .highlights-preview-head { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; margin-bottom: 26px; text-align: center; }
@@ -766,82 +750,6 @@
       box-shadow:inset 0 1px 0 rgba(111,220,158,.12),0 0 28px rgba(52,168,112,.06);
     }
 
-    .business-contact-section {
-      padding:72px 0;
-      border-top:1px solid rgba(200,169,110,.11);
-      background:linear-gradient(180deg,rgba(200,169,110,.025),transparent 70%);
-    }
-    .business-contact-card {
-      max-width:760px;
-      margin:0 auto;
-      padding:44px 40px;
-      border:1px solid rgba(200,169,110,.25);
-      border-radius:var(--radius-card);
-      background:linear-gradient(145deg,rgba(18,15,10,.78),rgba(8,8,8,.9));
-      box-shadow:0 14px 44px rgba(0,0,0,.28),inset 0 1px 0 rgba(200,169,110,.07);
-      text-align:center;
-    }
-    .business-contact-card .section-label { display:block; }
-    .business-contact-card h2 {
-      margin:14px 0 12px;
-      color:var(--text);
-      font-family:'Noto Serif TC',serif;
-      font-size:clamp(1.8rem,4vw,2.5rem);
-      line-height:1.4;
-      letter-spacing:.08em;
-    }
-    .business-contact-card > p {
-      color:var(--muted);
-      font-size:.92rem;
-      line-height:2;
-      letter-spacing:.08em;
-    }
-    .business-services {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:10px;
-      margin:28px auto 0;
-    }
-    .business-service {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:58px;
-      padding:12px 14px;
-      border:1px solid rgba(200,169,110,.18);
-      border-radius:var(--radius-btn);
-      color:#c8c0b0;
-      background:rgba(200,169,110,.025);
-      font-size:.84rem;
-      font-weight:700;
-      line-height:1.65;
-      letter-spacing:.05em;
-      text-align:center;
-    }
-    .business-contact-actions {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-      width:min(100%,520px);
-      margin:28px auto 0;
-    }
-    .business-contact-actions .btn-primary,
-    .business-contact-actions .btn-outline {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      min-height:50px;
-    }
-    .business-email {
-      color:var(--accent2);
-      border-color:rgba(200,169,110,.34);
-      background:rgba(200,169,110,.035);
-    }
-    .business-email:hover {
-      color:#fff1c5;
-      background:rgba(200,169,110,.08);
-    }
     .home-contact-official::after { background:linear-gradient(90deg,transparent,rgba(190,255,210,.18),transparent); }
     .contact-sub { font-size: clamp(1rem,2.5vw,1.2rem); font-weight:400; color:#888; letter-spacing:0.12em; line-height:2.2; text-align:center; margin-bottom:0; }
     .contact-note { font-size: 0.8rem; color: #555; letter-spacing: 0.06em; margin-top: 12px; }
@@ -1208,22 +1116,6 @@
       .quiz-result { padding: 26px 20px; }
       .quiz-result-title { font-size: 1.08rem; }
       .quiz-result-desc { font-size: 0.95rem; }
-      .business-contact-section { padding:48px 0; }
-      .business-contact-card { padding:34px 20px; }
-      .business-services { gap:8px; }
-      .business-service {
-        min-height:68px;
-        padding:10px 8px;
-        font-size:.76rem;
-        letter-spacing:.02em;
-      }
-      .business-contact-actions { gap:8px; }
-      .business-contact-actions .btn-primary,
-      .business-contact-actions .btn-outline {
-        padding:12px 8px;
-        font-size:.84rem;
-        letter-spacing:.05em;
-      }
     }
     @media (max-width:390px) {
       .hero-cta.cta-three,
@@ -1440,14 +1332,9 @@
 
   <hr class="divider"/>
 
-  <!-- 4. 匿名心得 -->
+  <!-- 精選紀錄預覽 -->
   <section id="reviews">
     <div class="container">
-      <p class="section-label fade-up" style="font-size:1.6rem;font-weight:700;color:var(--accent);letter-spacing:0.06em;">真實心得</p>
-      <h2 class="section-title fade-up" style="transition-delay:0.05s">她們說的話</h2>
-      <p class="section-desc fade-up" style="transition-delay:0.1s">全部匿名　不像其他經紀<br/>會拍小姐照片　個資上傳</p>
-      <div class="reviews-grid fade-up" style="transition-delay:0.15s" id="reviews-grid"></div>
-
       <div class="highlights-preview fade-up" style="transition-delay:0.2s">
         <div class="highlights-preview-head">
           <div>
@@ -1503,28 +1390,6 @@
 </section>
 
   <hr class="divider"/>
-
-  <section class="business-contact-section">
-    <div class="container">
-      <div class="business-contact-card">
-        <span class="section-label">BUSINESS</span>
-        <h2>商務合作洽詢</h2>
-        <p>合作提案請透過 LINE 或 Email 與我聯繫</p>
-        <div class="business-services">
-          <div class="business-service">品牌／直播平台合作</div>
-          <div class="business-service">短影音剪輯<br>企劃／代操</div>
-          <div class="business-service">Meta／Google<br>廣告協助</div>
-          <div class="business-service">網站／落地頁<br>廣告素材製作</div>
-          <div class="business-service">AI 工具導入<br>工作流程協助</div>
-          <div class="business-service">其他異業合作</div>
-        </div>
-        <div class="business-contact-actions">
-          <a class="btn-primary" href="https://line.me/ti/p/tTUQTPHKrE" target="_blank" rel="noopener noreferrer">LINE 洽詢</a>
-          <a class="btn-outline business-email" href="mailto:angus061855@gmail.com?subject=%E5%95%86%E5%8B%99%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2">Email 洽詢</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <footer>
     <div class="footer-logo">
@@ -1787,42 +1652,6 @@
     document.getElementById('total-views').textContent = total.toLocaleString();
   }
   calcTotalViews();
-
-  /* ── 4. 隨機心得 ── */
-(function() {
-  const ALL_REVIEWS = [
-    { avatar:'小', name:'小 A', loc:'台北', age:23, text:'一開始只是想問問看\n沒想到大頭真的把所有事情都說清楚了\n連我不好意思問的問題他都直接回答\n最後我自己決定要來做　完全沒有被催' },
-    { avatar:'林', name:'林小姐', loc:'新北', age:26, text:'之前找過別的經紀　被要求簽合約嚇到了\n後來找到大頭　他說不用簽任何東西　我還以為在騙我\n結果真的沒有　薪水也準時' },
-    { avatar:'陳', name:'陳小姐', loc:'桃園', age:21, text:'我只做了兩個月應急　大頭完全沒有催我繼續做　要離開的時候也很順利　就是說一聲就好　\n真的跟他說的一樣　想走就走' },
-    { avatar:'王', name:'王小姐', loc:'台中', age:24, text:'問了很多問題　大頭每一題都回答\n沒有一次叫我不用擔心然後跳過　這種感覺很不一樣　\n讓我覺得他真的在乎我有沒有搞清楚' },
-    { avatar:'張', name:'張小姐', loc:'高雄', age:22, text:'本來以為會被一直催　結果完全沒有　\n說不做就不做　\n他還說沒關係有問題再來找他　\n這種態度真的很少見' },
-    { avatar:'李', name:'李小姐', loc:'新竹', age:25, text:'薪水真的週六就到帳　我還特別去截圖存起來　\n因為之前聽說很多人被壓薪水　\n跟大頭合作完全沒有這個問題' },
-    { avatar:'吳', name:'吳小姐', loc:'台北', age:20, text:'第一次去面試前緊張到不行　大頭說有問題就傳訊息給他　結果我傳了七八個問題他都一一回答　當下就覺得這個人可以信任' },
-    { avatar:'黃', name:'黃小姐', loc:'桃園', age:27, text:'做了四個月　中間請假了很多次　\n大頭從來沒有說什麼　就是說好好休息　\n這種自由感是我當初最在意的事情' },
-    { avatar:'蔡', name:'蔡小姐', loc:'台南', age:23, text:'我問過他一個很敏感的問題　本來以為他會敷衍我　\n結果他直接說了真實情況　\n連不好的地方也沒有隱瞞　那一刻我就決定信任他了' },
-  ];
-  function shuffle(arr) {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
-  const picked = shuffle(ALL_REVIEWS).slice(0, 3);
-  document.getElementById('reviews-grid').innerHTML = picked.map(r => `
-    <div class="review-card">
-      <p class="review-text">${r.text}</p>
-      <div class="review-meta">
-        <div class="review-avatar">${r.avatar}</div>
-        <div>
-          <div class="review-name">${r.name}　${r.loc}　${r.age} 歲</div>
-          <div class="review-stars">★★★★★</div>
-        </div>
-      </div>
-    </div>
-  `).join('');
-})();
 
   /* ── 10. 互動測驗 ── */
   const quizAnswers = [];
