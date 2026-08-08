@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://as-ent-tw.com/</loc></url>
+  <url><loc>https://as-ent-tw.com/contact</loc></url>
+  <url><loc>https://as-ent-tw.com/landing-b/</loc></url>
   <url><loc>https://as-ent-tw.com/about</loc></url>
   <url><loc>https://as-ent-tw.com/jobs</loc></url>
   <url><loc>https://as-ent-tw.com/knowledge</loc></url>
   <url><loc>https://as-ent-tw.com/blog</loc></url>
-  <url><loc>https://as-ent-tw.com/contact</loc></url>
+  <url><loc>https://as-ent-tw.com/highlights/</loc></url>
   <url><loc>https://as-ent-tw.com/privacy</loc></url>
   <url><loc>https://as-ent-tw.com/disclaimer</loc></url>
 </urlset>

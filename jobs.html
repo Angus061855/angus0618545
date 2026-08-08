@@ -21,6 +21,27 @@
   <meta name="twitter:title" content="職缺介紹｜AS娛樂 大頭" />
   <meta name="twitter:description" content="先了解工作內容、薪資與排班，再決定適不適合。" />
   <meta name="twitter:image" content="https://as-ent-tw.com/assets/og/jobs.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://as-ent-tw.com/jobs#webpage",
+      "url": "https://as-ent-tw.com/jobs",
+      "name": "職缺介紹｜AS娛樂 大頭",
+      "description": "AS娛樂職缺介紹：酒店公關、紓壓會館美容師、經紀人與其他工作。整理適合對象、薪資範圍、排班方式與注意事項。",
+      "isPartOf": { "@id": "https://as-ent-tw.com/#website" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "AS娛樂目前開放職缺",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "酒店公關", "url": "https://as-ent-tw.com/jobs#hotel-job" },
+          { "@type": "ListItem", "position": 2, "name": "紓壓會館美容師", "url": "https://as-ent-tw.com/jobs#beauty-job" },
+          { "@type": "ListItem", "position": 3, "name": "經紀人", "url": "https://as-ent-tw.com/jobs#agent-job" },
+          { "@type": "ListItem", "position": 4, "name": "其他工作", "url": "https://as-ent-tw.com/jobs#other-job" }
+        ]
+      }
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -83,7 +104,7 @@
         <span class="section-label">職缺項目</span>
         <h2 class="section-title">目前開放職缺</h2>
         <div class="grid-2 jobs-list">
-          <article class="card">
+          <article class="card" id="hotel-job">
             <span class="tag red">熱門</span>
             <h3>酒店公關</h3>
             <p>主要在包廂與客人喝酒聊天 桌面服務 炒熱氣氛</p>
@@ -93,7 +114,7 @@
               <li>排班：午場晚場都有 可以兼職與短期</li>
             </ul>
           </article>
-          <article class="card">
+          <article class="card" id="beauty-job">
             <span class="tag red">薪資最高</span>
             <h3>紓壓會館美容師</h3>
             <p>美容紓壓相關工作　適合不喝酒不熬夜的人<br>平均日薪 30000 起</p>
@@ -113,7 +134,7 @@
               <li>排班：彈性但需要即時回覆與跟進</li>
             </ul>
           </article>
-          <article class="card">
+          <article class="card" id="other-job">
             <span class="tag">其他方向</span>
             <h3>其他工作</h3>
             <p>還不確定自己適合哪一種工作<br>也可以先把時間　條件與顧慮告訴我</p>
