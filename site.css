@@ -1011,8 +1011,9 @@ nav {
   font-weight: 800;
 }
 .fake-job-list {
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:10px;
   margin:18px auto 22px;
   max-width:880px;
@@ -1022,6 +1023,7 @@ nav {
   align-items:center;
   justify-content:center;
   min-height:36px;
+  flex:0 0 calc((100% - 40px) / 5);
   padding:7px 14px;
   border:1px solid rgba(255,119,119,.34);
   border-radius:var(--radius-pill);
@@ -2568,12 +2570,12 @@ footer {
     line-height:1.5;
   }
   .fake-job-list {
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    display:flex;
+    flex-wrap:wrap;
     gap:8px;
   }
   .fake-job-list span {
-    width:100%;
+    flex:0 0 calc((100% - 8px) / 2);
     font-size:.84rem;
     padding:8px 6px;
     text-align:center;
