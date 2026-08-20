@@ -4,6 +4,8 @@
  * 刪除一行會讓該圖片不再顯示，但不會刪除原始圖片檔。
  */
 window.AS_HIGHLIGHT_STORIES = [
+  "story-082.jpg",
+  "story-081.jpg",
   "story-001.jpg",
   "story-002.jpg",
   "story-003.jpg",
@@ -84,6 +86,4 @@ window.AS_HIGHLIGHT_STORIES = [
   "story-078.png",
   "story-079.png",
   "story-080.png",
-  "story-081.jpg",
-  "story-082.jpg",
 ];
