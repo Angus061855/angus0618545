@@ -84,4 +84,5 @@ window.AS_HIGHLIGHT_STORIES = [
   "story-078.png",
   "story-079.png",
   "story-080.png",
+  "story-081.jpg",
 ];
