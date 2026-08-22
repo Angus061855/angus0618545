@@ -8,7 +8,6 @@ window.AS_HIGHLIGHT_STORIES = [
   "story-081.jpg",
   "story-046.jpg",
   "story-045.jpg",
-  "story-044.jpg",
   "story-041.png",
   "story-040.png",
   "story-037.jpg",
