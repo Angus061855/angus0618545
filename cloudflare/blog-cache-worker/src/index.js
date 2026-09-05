@@ -1,5 +1,3 @@
-const ORIGIN = 'https://polished-truth-9fc2.angus061855.workers.dev';
-
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type',
@@ -22,6 +20,23 @@ function responseWithHeaders(response, extraHeaders) {
     statusText: response.statusText,
     headers
   });
+}
+
+async function fetchOriginWithRetry(env, originUrl, accept) {
+  let response;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      response = await env.ORIGIN_WORKER.fetch(originUrl, {
+        headers: { Accept: accept }
+      });
+    } catch (error) {
+      if (attempt === 1) throw error;
+      continue;
+    }
+
+    if (response.status < 500 || attempt === 1) return response;
+  }
+  return response;
 }
 
 export default {
@@ -53,12 +68,14 @@ export default {
       return responseWithHeaders(cached, { 'X-AS-Cache': 'HIT' });
     }
 
-    const originUrl = new URL(requestUrl.pathname + requestUrl.search, ORIGIN);
+    const originUrl = new URL(requestUrl.pathname + requestUrl.search, requestUrl.origin);
     let originResponse;
     try {
-      originResponse = await fetch(originUrl, {
-        headers: { Accept: request.headers.get('Accept') || '*/*' }
-      });
+      originResponse = await fetchOriginWithRetry(
+        env,
+        originUrl,
+        request.headers.get('Accept') || '*/*'
+      );
     } catch (error) {
       console.error(JSON.stringify({ event: 'origin_fetch_failed', path: requestUrl.pathname }));
       return Response.json(
